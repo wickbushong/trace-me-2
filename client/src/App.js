@@ -8,12 +8,12 @@ import {
   Link
 } from "react-router-dom";
 
-import Nav from './Nav'
+import Navigation from './Navigation'
 
 function App() {
   return (
     <Router>
-      <Nav />
+      <Navigation />
 
     </Router>
     // <div className="App">
