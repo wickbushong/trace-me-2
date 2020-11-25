@@ -5,8 +5,9 @@ import './index.css';
 import App from './App';
 
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import { createStore } from 'redux'
 
+let store = createStore(rootReducer)
 
 ReactDOM.render(
   <Provider store={store}>
