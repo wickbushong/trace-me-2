@@ -8,12 +8,12 @@ import {
   Link
 } from "react-router-dom";
 
-import Navbar from './Navbar'
+import Nav from './Nav'
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Nav />
 
     </Router>
     // <div className="App">

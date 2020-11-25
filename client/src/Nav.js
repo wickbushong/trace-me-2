@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-class Navbar extends React.Component {
+class Nav extends React.Component {
     render() {
         return (
             <div className="nav nav-tabs">
@@ -17,4 +17,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar
+export default Nav
