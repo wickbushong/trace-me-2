@@ -4,13 +4,17 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends React.Component {
     render() {
         return (
-            <div class="nav nav-tabs">
-                <NavLink
-                    to='/'
-                    exact
-
-                >Home</NavLink>
+            <div className="nav nav-tabs">
+                <div className="nav-item">
+                    <NavLink
+                        to='/'
+                        exact
+                        className='nav-link'
+                    >Home</NavLink>
+                </div>
             </div>
         )
     }
 }
+
+export default Navbar

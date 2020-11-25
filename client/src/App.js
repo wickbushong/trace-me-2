@@ -8,10 +8,13 @@ import {
   Link
 } from "react-router-dom";
 
+import Navbar from './Navbar'
+
 function App() {
   return (
     <Router>
-      
+      <Navbar />
+
     </Router>
     // <div className="App">
     //   <header className="App-header">
