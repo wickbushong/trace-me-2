@@ -18,7 +18,7 @@ class Api::V1::BusinessesController < ApplicationController
     @business = Business.new(business_params)
 
     if @business.save
-      render json: @business, status: :created, location: @business
+      render json: @business, status: :created
     else
       render json: @business.errors, status: :unprocessable_entity
     end

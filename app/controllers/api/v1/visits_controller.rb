@@ -18,7 +18,7 @@ class Api::V1::VisitsController < ApplicationController
     @visit = Visit.new(visit_params)
 
     if @visit.save
-      render json: @visit, status: :created, location: @visit
+      render json: @visit, status: :created
     else
       render json: @visit.errors, status: :unprocessable_entity
     end

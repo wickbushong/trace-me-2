@@ -18,7 +18,7 @@ class Api::V1::ReportsController < ApplicationController
     @report = Report.new(report_params)
 
     if @report.save
-      render json: @report, status: :created, location: @report
+      render json: @report, status: :created
     else
       render json: @report.errors, status: :unprocessable_entity
     end
