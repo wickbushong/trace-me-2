@@ -19,7 +19,7 @@ class Api::V1::BusinessesController < ApplicationController
     @business = Business.new(business_params)
 
     if @business.save
-      @token = encode_token(business_id: @business.id)
+      @token = encode_token({business_id: @business.id})
       render json: {business: BusinessSerializer.new(@business), jwt: @token}, status: :created
     else
       render json: @business.errors, status: :unprocessable_entity
