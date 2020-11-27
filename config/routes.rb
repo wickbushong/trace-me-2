@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :reports
       resources :visits
-      resources :businesses
+      resources :businesses do
+        resources :visits
+      end
       resources :users
     end
   end
