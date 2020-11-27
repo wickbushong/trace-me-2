@@ -46,6 +46,6 @@ class Api::V1::BusinessesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def business_params
-      params.require(:business).permit(:name)
+      params.require(:business).permit(:name, :email, :password, :phone, :location)
     end
 end

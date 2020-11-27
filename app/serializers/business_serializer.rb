@@ -1,3 +1,3 @@
 class BusinessSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :email, :phone, :location
 end

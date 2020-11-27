@@ -13,14 +13,16 @@ Business.create(
     name: "Brown's Diner",
     phone: "6151234567",
     email: "wickbushong@gmail.com",
-    location: "corner of 21st and Blair"
+    location: "corner of 21st and Blair",
+    password: 'password'
 )
 
 Business.create(
     name: "PM",
     phone: "6159482804",
     email: "asian@nashville.com",
-    location: "Belmont Dr"
+    location: "Belmont Dr",
+    password: 'password'
 )
 
 User.create(
