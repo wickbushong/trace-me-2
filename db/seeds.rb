@@ -12,7 +12,7 @@ User.destroy_all
 Business.create(
     name: "Brown's Diner",
     phone: "6151234567",
-    email: "bud@browns.com",
+    email: "wickbushong@gmail.com",
     location: "corner of 21st and Blair"
 )
 
@@ -27,14 +27,14 @@ User.create(
     first_name: "Wick",
     last_name: "Bushong",
     phone: "7138185446",
-    email: "wickbushong@gmail.com"
+    email: "wick@bushong.com"
 )
 
 User.create(
     first_name: "Margaret",
     last_name: "Long",
     phone: "2222222222",
-    email: "margaret@long.com"
+    email: "long.mkat@gmail.com"
 )
 
 User.create(
