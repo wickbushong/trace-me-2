@@ -11,7 +11,7 @@ class Navigation extends React.Component {
                 <Navbar.Brand href="#">TraceMe</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="#">Home</Nav.Link>
-                    <Nav.Link href="#">Features</Nav.Link>
+                    <Nav.Link href="#">New</Nav.Link>
                 </Nav>
             </Navbar>
             // <div className="nav nav-tabs">
