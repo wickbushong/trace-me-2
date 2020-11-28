@@ -21,7 +21,7 @@ class LogInForm extends React.PureComponent {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.logInBusiness(this.state)
         this.setState({
             email: '',
             password: ''

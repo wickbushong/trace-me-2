@@ -1,15 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LogInForm from '../components/auth/LogInForm'
+import logInBusiness from '../actions/businesses/logIn'
 
 const LogInPage = props => {
-    // destructuring props 
+    let {logInBusiness} = props
     return (
         <div>
             <h1>come on in</h1>
-            <LogInForm />
+            <LogInForm logInBusiness={logInBusiness}/>
         </div>
     )
 }
 
-export default LogInPage
+const mapStateToProps = state => {
+    return {
+        business: state.business
+    }
+}
+
+export default connect(mapStateToProps, {logInBusiness})(LogInPage)
