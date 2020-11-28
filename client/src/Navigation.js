@@ -11,21 +11,19 @@ class Navigation extends React.Component {
                 <Navbar.Brand as={NavLink} to="/">TraceMe</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link as={NavLink} to="/login">Log In</Nav.Link>
-                        <Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
+                    <Nav className="container-fluid">
+                        <Nav.Item>
+                            <Nav.Link as={NavLink} to="/login">Log In</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="ml-auto">
+                            <Nav.Link as={NavLink} to='/logout'>Log Out</Nav.Link>
+                        </Nav.Item>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-            // <div className="nav nav-tabs">
-            //     <div className="nav-item">
-            //         <NavLink
-            //             to='/'
-            //             exact
-            //             className='nav-link'
-            //         >Home</NavLink>
-            //     </div>
-            // </div>
         )
     }
 }
