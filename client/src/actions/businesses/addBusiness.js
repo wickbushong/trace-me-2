@@ -9,7 +9,7 @@ export default function addBusiness(business) {
             .then(response => response.json())
                 .then(result => {
                     localStorage.jwt = result.jwt
-                    dispatch({type: "ADD_BUSINESS", payload: result})
+                    dispatch({type: "ADD_BUSINESS", payload: result.business})
                 })
     }
 }
