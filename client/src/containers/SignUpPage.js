@@ -7,7 +7,7 @@ const SignUpPage = props => {
     return (
         <div>
             <h1>let's get you signed up</h1>
-            <p>all we need is some basic info about your business</p>
+            <p>all we need is some basic info about your business - don't worry, we'll keep it to ourselves</p>
             <SignUpForm />
         </div>
     )
