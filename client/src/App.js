@@ -5,9 +5,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import {connect} from 'react-redux';
 
 
-import Navigation from './Navigation'
+import Navigation from './navigation/Navigation'
 import Container from 'react-bootstrap/Container'
 import LogInPage from './containers/LogInPage'
 import SignUpPage from './containers/SignUpPage'
@@ -39,4 +40,10 @@ class App extends React.Component {
 
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    business: state.business
+  }
+}
+
+export default connect(mapStateToProps)(App);
