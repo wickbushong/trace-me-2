@@ -1,12 +1,13 @@
 import React from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import LogInForm from '../components/auth/LogInForm'
 
 const LogInPage = props => {
     // destructuring props 
     return (
         <div>
-            THIS IS THE LOG IN PAGE
-
+            <h1>come on in</h1>
+            <LogInForm />
         </div>
     )
 }
