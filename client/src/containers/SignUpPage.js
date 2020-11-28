@@ -5,7 +5,6 @@ import addBusiness from '../actions/businesses/addBusiness'
 
 const SignUpPage = props => {
     let {business, addBusiness} = props
-    console.log(business)
     return (
         <div>
             <h1>let's get you signed up</h1>
