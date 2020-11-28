@@ -42,7 +42,7 @@ class SignUpForm extends React.PureComponent {
                         type="tel"
                         name="phone"
                         placeholder="Enter phone number"
-                        value={this.state.name}
+                        value={this.state.phone}
                         onChange={this.handleOnChange}
                     />
                     <Form.Text className="text-muted">
@@ -56,7 +56,7 @@ class SignUpForm extends React.PureComponent {
                         rows={3}
                         name="location"
                         placeholder="Enter physical address"
-                        value={this.state.name}
+                        value={this.state.location}
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
@@ -67,7 +67,7 @@ class SignUpForm extends React.PureComponent {
                         name="email"
                         placeholder="Enter email"
                         required 
-                        value={this.state.name}
+                        value={this.state.email}
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
@@ -78,7 +78,7 @@ class SignUpForm extends React.PureComponent {
                         name="password"
                         placeholder="Enter password"
                         required
-                        value={this.state.name}
+                        value={this.state.password}
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
