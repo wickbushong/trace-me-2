@@ -14,17 +14,29 @@ class SignUpForm extends React.PureComponent {
         }
     }
 
-    handleOnChange = e => {
+    handleOnChange = event => {
         this.setState(prevState => {
             return {
             ...prevState,
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         }})
+    }
+
+    handleOnSubmit = event => {
+        event.preventDefault()
+        console.log(this.state)
+        this.setState({
+            name: '',
+            phone: '',
+            location: '',
+            email: '',
+            password: ''
+        })
     }
 
     render() {
         return (
-            <Form>
+            <Form onSubmit={this.handleOnSubmit}>
                 <Form.Group controlId="formName">
                     <Form.Label>Name*</Form.Label>
                     <Form.Control 
