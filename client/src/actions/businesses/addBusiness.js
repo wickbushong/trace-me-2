@@ -8,7 +8,8 @@ export default function addBusiness(business) {
         fetch("http://localhost:3001/api/v1/businesses", options)
             .then(response => response.json())
                 .then(result => {
-                    console.log(result)
+                    localStorage.jwt = result.jwt
+                    dispatch({type: "ADD_BUSINESS", payload: result})
                 })
     }
 }
