@@ -9,10 +9,10 @@ class ApplicationController < ActionController::API
 
     def auth_header
     # { 'Authorization': 'Bearer <token>' }
-    request.headers['Authorization']
+        request.headers['Authorization']
     end
 
-    def decoded_token(token)
+    def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
             # headers: { 'Authorization': 'Bearer <token>' }
