@@ -9,17 +9,32 @@ import {
 
 
 import Navigation from './Navigation'
+import LogInPage from './containers/LogInPage'
+import SignUpPage from './containers/SignUpPage'
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Navigation></Navigation>
-        
-      </div>
-    </Router>
-    
-  );
+class App extends React.Component {
+  
+  render() {
+    return (
+      <Router>
+        <div>
+          <Navigation></Navigation>
+          <Switch>
+            <Route exact path="/">
+                <h1>THIS IS THE HOMEPAGE. DO SOMETHING ABOUT IT</h1>
+            </Route>
+            <Route path="/login">
+              <LogInPage />
+            </Route>
+            <Route path="/signup">
+              <SignUpPage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+
 }
 
 export default App;
