@@ -5,6 +5,10 @@ export default function addBusiness(business) {
             headers: {"Content-Type": "application/json", "Accept": "application/json"},
             body: JSON.stringify({business})
         }
-        fetch("http://localhost:3001/businesses", options)
+        fetch("http://localhost:3001/api/v1/businesses", options)
+            .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                })
     }
 }

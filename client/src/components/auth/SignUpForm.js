@@ -24,7 +24,7 @@ class SignUpForm extends React.PureComponent {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.addBusiness(this.state)
         this.setState({
             name: '',
             phone: '',
