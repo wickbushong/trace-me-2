@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 class Navigation extends React.Component {
     render() {
         return (
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" variant="dark" sticky="top">
                 <Navbar.Brand href="#">TraceMe</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="#">Log In</Nav.Link>
