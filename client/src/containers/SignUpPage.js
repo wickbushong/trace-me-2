@@ -6,7 +6,8 @@ const SignUpPage = props => {
     // props destructuring
     return (
         <div>
-            <h1>THIS IS THE SIGN UP PAGE</h1>
+            <h1>let's get you signed up</h1>
+            <p>all we need is some basic info about your business</p>
             <SignUpForm />
         </div>
     )
