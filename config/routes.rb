@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :visits
       end
       resources :users
+      resources :auth
     end
   end
 
