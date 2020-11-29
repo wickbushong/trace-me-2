@@ -24,9 +24,21 @@ class CheckInForm extends React.Component {
         }})
     }
 
+    handleOnSubmit = event => {
+        event.preventDefault()
+        console.log(this.state)
+        this.setState({
+            firstName: '',
+            lastName: '',
+            phone: '',
+            email: ''
+        })
+    }
+
     render() {
         return (
-            <Form>
+            <Form onSubmit={this.handleOnSubmit}>
+                <br></br>
                 <h1 className="text-center">CHECK IN</h1>
 
                 <label htmlFor="formName">Name</label>                    
@@ -66,10 +78,14 @@ class CheckInForm extends React.Component {
                     <Form.Control 
                         type="tel"
                         name="phone"
-                        placeholder="Enter phone number"
+                        placeholder="1234567890"
+                        required
                         value={this.state.phone}
                         onChange={this.handleOnChange}
                     />
+                    <Form.Text className="text-muted">
+                        no parentheses or dashes
+                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group>

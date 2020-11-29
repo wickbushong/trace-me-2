@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import CurrentVisitors from './CurrentVisitors'
 import CheckInForm from '../components/visits/CheckInForm'
 
 class VisitorsPage extends React.Component {
@@ -11,7 +12,7 @@ class VisitorsPage extends React.Component {
             <Container>
                 <Row>
                     <Col><CheckInForm /></Col>
-                    <Col>Current Visitors</Col>
+                    <Col><CurrentVisitors /></Col>
                 </Row>
             </Container>
         )
