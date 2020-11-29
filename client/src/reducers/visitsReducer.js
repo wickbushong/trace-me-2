@@ -1,4 +1,4 @@
-export const visitsReducer = (state = { visits: [], loading: false }, action) => {
+export const visitsReducer = (state = { visits: [], business: {}, loading: false }, action) => {
     console.log(action)
     switch (action.type) {
         case 'LOADING_VISITS':
@@ -12,6 +12,14 @@ export const visitsReducer = (state = { visits: [], loading: false }, action) =>
                 ...state,
                 visits: action.visits,
                 loading: false
+            }
+        case 'CHECKIN_VISIT':
+            return {
+                state
+            }
+        case 'CHECKOUT_VISIT':
+            return {
+                state
             }
         default:
             return state;

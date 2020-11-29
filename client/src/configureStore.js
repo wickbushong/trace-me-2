@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, compose } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -8,6 +8,6 @@ export default function configureStore(){
   const initialState = {
     business: {}
   }
-  const store = createStore(rootReducer, initialState, compose(applyMiddleware(thunk), composeWithDevTools()))
+  const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
   return store
 }

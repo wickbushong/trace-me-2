@@ -1,9 +1,12 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
+import { connect } from 'react-redux'
 
-class CurrentVisitors extends React.Component {
+class CurrentVisitorsList extends React.Component {
 
     render() {
+        const business = this.props.business
         return(
             <>
                 <br></br>
@@ -16,9 +19,21 @@ class CurrentVisitors extends React.Component {
                     <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                     <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
                 </ListGroup>
+                <br></br>
+                <Button
+                        type="submit"
+                        variant="info"
+                        block
+                >{}</Button>
             </>
         )
     }
 }
 
-export default CurrentVisitors
+// const mapStateToProps = state => {
+//     return {
+//         business: state.business
+//     }
+// }
+
+export default CurrentVisitorsList
