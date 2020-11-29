@@ -6,12 +6,12 @@ import {
   Route
 } from "react-router-dom";
 import {connect} from 'react-redux';
-
+import Container from 'react-bootstrap/Container'
 
 import Navigation from './navigation/Navigation'
-import Container from 'react-bootstrap/Container'
 import LogInPage from './containers/LogInPage'
 import SignUpPage from './containers/SignUpPage'
+import VisitorsPage from './containers/visitorsPage'
 
 class App extends React.Component {
   
@@ -30,6 +30,9 @@ class App extends React.Component {
               </Route>
               <Route path="/signup">
                 <SignUpPage />
+              </Route>
+              <Route path="/log">
+                <VisitorsPage />
               </Route>
             </Switch>
           </Container>

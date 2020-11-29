@@ -8,10 +8,8 @@ import { connect } from 'react-redux';
 
 class Navigation extends React.PureComponent {
     
-
     render() {
-        let { business } = this.props
-        console.log(business)
+        // debugger
         return (
             <Navbar bg="dark" variant="dark" sticky="top">
                 <Navbar.Brand as={NavLink} to="/">TraceMe</Navbar.Brand>
@@ -23,6 +21,9 @@ class Navigation extends React.PureComponent {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link as={NavLink} to="/log">Visitor Log</Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="ml-auto">
                         <Nav.Link as={NavLink} to='/logout'>Log Out</Nav.Link>
