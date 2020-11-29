@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container'
 import Navigation from './navigation/Navigation'
 import LogInPage from './containers/LogInPage'
 import SignUpPage from './containers/SignUpPage'
-import VisitorsPage from './containers/visitorsPage'
+import VisitorsPage from './containers/VisitorsPage'
 
 class App extends React.Component {
   
