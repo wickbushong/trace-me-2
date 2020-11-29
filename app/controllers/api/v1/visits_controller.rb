@@ -1,3 +1,5 @@
+require 'pry'
+
 class Api::V1::VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :update, :destroy]
 
@@ -15,12 +17,19 @@ class Api::V1::VisitsController < ApplicationController
 
   # POST /visits
   def create
-    @visit = Visit.new(visit_params)
+    binding.pry
+    user = User.find_or_create_by(user_params)
+    business = Business.find_by(id: params[:business_id])
+    visit = Visit.new(
+            user: user,
+            business: business,
+            time_in: Time.now
+    )
 
-    if @visit.save
-      render json: @visit, status: :created
+    if visit.save
+      render json: visit, status: :created
     else
-      render json: @visit.errors, status: :unprocessable_entity
+      render json: visit.errors, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +55,10 @@ class Api::V1::VisitsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def visit_params
-      params.require(:visit).permit(:flagged)
+      params.require(:visit).permit(:user_id, :business_id, :id)
+    end
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :phone, :email)
     end
 end

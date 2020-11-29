@@ -1,4 +1,4 @@
-export default function checkIn = (user, businessId) => {
+export default function checkIn(user, businessId) {
     return (dispatch) => {
         let visit_options = {
             method: "POST",

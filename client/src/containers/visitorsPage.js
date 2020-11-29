@@ -8,13 +8,13 @@ import {connect} from 'react-redux'
 import CurrentVisitorsList from './CurrentVisitorsList'
 import CheckInForm from '../components/visits/CheckInForm'
 
-import { checkIn } from '../actions/visits/checkIn'
+import checkIn from '../actions/visits/checkIn'
 
 class VisitorsPage extends React.Component {
 
-    
+    // THIS IS A HARDCODED BUSINESS ID
     handleCheckIn = user => {
-        this.props.checkIn(user, businessId: 1)
+        this.props.checkIn(user, 1)
     }
 
     render() {
