@@ -10,7 +10,7 @@ class CurrentVisitorsList extends React.Component {
         return(
             <>
                 <br></br>
-                <h1 className="text-center">CURRENT VISITORS</h1>
+                <h1 className="text-center">VISITORS</h1>
                 <br></br>
                 <ListGroup>
                     <ListGroup.Item>Cras justo odio</ListGroup.Item>
@@ -19,12 +19,6 @@ class CurrentVisitorsList extends React.Component {
                     <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                     <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
                 </ListGroup>
-                <br></br>
-                <Button
-                        type="submit"
-                        variant="info"
-                        block
-                >{}</Button>
             </>
         )
     }

@@ -5,9 +5,14 @@ class Api::V1::VisitsController < ApplicationController
 
   # GET /visits
   def index
-    @visits = Visit.all
+    if params[:business_id]
+      business = Business.find_by(id: params[:business_id])
+      visits = business.active_visits
+  else
+      visits = Visit.all
+  end
 
-    render json: @visits
+    render json: visits
   end
 
   # GET /visits/1
@@ -17,7 +22,6 @@ class Api::V1::VisitsController < ApplicationController
 
   # POST /visits
   def create
-    binding.pry
     user = User.find_or_create_by(user_params)
     business = Business.find_by(id: params[:business_id])
     visit = Visit.new(
@@ -35,6 +39,7 @@ class Api::V1::VisitsController < ApplicationController
 
   # PATCH/PUT /visits/1
   def update
+    binding.pry
     if @visit.update(visit_params)
       render json: @visit
     else

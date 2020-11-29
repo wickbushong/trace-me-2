@@ -8,6 +8,7 @@ export const visitsReducer = (state = { visits: [], business: {}, loading: false
                 loading: true
             };
         case 'ADD_VISITS':
+            debugger
             return {
                 ...state,
                 visits: action.visits,

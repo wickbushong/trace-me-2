@@ -8,7 +8,6 @@ export default function checkIn(user, businessId) {
                 Authorization: `Bearer ${localStorage.jwt}`
             },
             body: JSON.stringify({user})
-
         }
 
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, visit_options)

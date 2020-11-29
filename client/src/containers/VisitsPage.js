@@ -10,12 +10,14 @@ import CheckInForm from '../components/visits/CheckInForm'
 
 import checkIn from '../actions/visits/checkIn'
 
-class VisitorsPage extends React.Component {
+class VisitsPage extends React.Component {
 
-    // THIS IS A HARDCODED BUSINESS ID
     handleCheckIn = user => {
+        // THIS IS A HARDCODED BUSINESS ID
         this.props.checkIn(user, 1)
     }
+
+    
 
     render() {
         const {business} = this.props
@@ -32,4 +34,4 @@ class VisitorsPage extends React.Component {
 
 const mapStateToProps = state => ({business: state.business})
 
-export default connect(mapStateToProps, {checkIn})(VisitorsPage)
+export default connect(mapStateToProps, {checkIn})(VisitsPage)
