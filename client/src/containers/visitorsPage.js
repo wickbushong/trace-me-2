@@ -12,8 +12,9 @@ import { checkIn } from '../actions/visits/checkIn'
 
 class VisitorsPage extends React.Component {
 
-    handleCheckIn = visitor => {
-        this.props.checkIn(visitor)
+    
+    handleCheckIn = user => {
+        this.props.checkIn(user, businessId: 1)
     }
 
     render() {

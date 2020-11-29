@@ -26,7 +26,7 @@ class CheckInForm extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.handleCheckIn(this.state)
         this.setState({
             firstName: '',
             lastName: '',
