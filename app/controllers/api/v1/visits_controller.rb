@@ -39,7 +39,6 @@ class Api::V1::VisitsController < ApplicationController
 
   # PATCH/PUT /visits/1
   def update
-    binding.pry
     visit = Visit.find_by(id: params[:visit_id])
     visit.time_out = Time.now
     if visit.save

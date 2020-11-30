@@ -19,9 +19,7 @@ export const visitsReducer = (state = [], action) => {
         case 'CHECKIN_VISIT':
             return [...state, action.payload]
         case 'CHECKOUT_VISIT':
-            return {
-                state
-            }
+            return state.filter(visit => visit.id !== action.payload.id)
         default:
             return state;
     }

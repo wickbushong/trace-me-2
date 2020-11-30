@@ -19,9 +19,8 @@ class VisitsPage extends React.PureComponent {
         this.props.checkIn(user, business.id)
     }
 
-    handleCheckOut = event => {
-        console.log(event)
-
+    handleCheckOut = visitId => {
+        this.props.checkOut(visitId)
     }
 
     handleFetch = () => {

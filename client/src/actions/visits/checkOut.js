@@ -12,8 +12,6 @@ export default function checkOut(visitId) {
 
         fetch(`http://localhost:3001/api/v1/visits/${visitId}`, visit_options)
             .then(response => response.json())
-                // .then(result => dispatch({type: 'CHECKOUT_VISIT', payload: result}))
-                .then(result => console.log(result))
-
+                .then(result => {dispatch({type: 'CHECKOUT_VISIT', payload: result})})
     }
 }
