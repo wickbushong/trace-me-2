@@ -3,7 +3,8 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import {connect} from 'react-redux';
 import Container from 'react-bootstrap/Container'
@@ -32,11 +33,17 @@ class App extends React.PureComponent {
               <Route path="/signup">
                 <SignUpPage />
               </Route>
-              <Route path="/log">
+              <Route path="/visits">
                 <VisitsPage />
               </Route>
               <Route path="/report">
                 <ReportPage />
+              </Route>
+              <Route path="/logout"> 
+                <Redirect to="/login" />
+              </Route>
+              <Route path="/">
+                <Redirect to="/login" />
               </Route>
             </Switch>
           </Container>
