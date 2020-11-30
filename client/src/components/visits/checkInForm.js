@@ -5,7 +5,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 
 
-class CheckInForm extends React.Component {
+class CheckInForm extends React.PureComponent {
     constructor() {
         super()
         this.state = {
