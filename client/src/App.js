@@ -16,9 +16,16 @@ import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
 
 import logOut from './actions/businesses/logOut'
+import JWTLogIn from './actions/businesses/JWTLogIn'
 
 
 class App extends React.PureComponent {
+  
+  componentDidMount() {
+    if (localStorage.jwt) {
+      this.props.JWTLogIn(localStorage.jwt)
+    }
+  }
   
   handleLogOut = () => {
     delete localStorage.jwt
@@ -73,4 +80,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logOut})(App);
+export default connect(mapStateToProps, {logOut, JWTLogIn})(App);

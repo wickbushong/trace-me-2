@@ -30,7 +30,8 @@ class ApplicationController < ActionController::API
           # decoded_token=> [{"user_id"=>2}, {"alg"=>"HS256"}]
           # or nil if we can't decode the token
           business_id = decoded_token[0]['business_id']
-          @business = Business.find_by(id: business_id)
+          business = Business.find_by(id: business_id)
+          return business
         end
     end
     

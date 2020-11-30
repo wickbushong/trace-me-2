@@ -1,8 +1,6 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
-// import { connect } from 'react-redux'
 import ActiveVisit from '../components/visits/ActiveVisit'
-import Button from 'react-bootstrap/Button'
 
 class CurrentVisitorsList extends React.PureComponent {
     componentDidMount() {
@@ -16,7 +14,6 @@ class CurrentVisitorsList extends React.PureComponent {
     }
 
     render() {
-        console.log(this.props)
         const {business, visits} = this.props
         return(
             <>
@@ -24,7 +21,7 @@ class CurrentVisitorsList extends React.PureComponent {
                 <h1 className="text-center">VISITORS</h1>
                 <br></br>
                 <ListGroup>
-                    {this.renderVisits(this.props.visits)}
+                    {this.renderVisits(visits)}
                 </ListGroup>
             </>
         )

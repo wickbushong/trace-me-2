@@ -1,5 +1,4 @@
 export const visitsReducer = (state = [], action) => {
-    console.log(action)
     switch (action.type) {
         case 'LOADING_VISITS':
             return {

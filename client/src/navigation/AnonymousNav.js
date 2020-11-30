@@ -9,7 +9,6 @@ class AnonymousNav extends React.PureComponent {
             <Nav className="container-fluid">
                 <Nav.Link as={NavLink} to="/login">Log In</Nav.Link>
                 <Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
-                {/* <Nav.Link as={NavLink} to="/report" className="ml-auto">Report</Nav.Link> */}
                 <Button variant="outline-danger" className="ml-auto" as={NavLink} to="/report">Report</Button>
             </Nav>
         )
