@@ -15,13 +15,21 @@ import SignUpPage from './containers/SignUpPage'
 import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
 
+import logOut from './actions/businesses/logOut'
+
+
 class App extends React.PureComponent {
   
+  handleLogOut = () => {
+    delete localStorage.jwt
+    this.props.logOut()
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Navigation></Navigation>
+          <Navigation logOut={this.handleLogOut} ></Navigation>
           <Container>
             <Switch>
               <Route exact path="/">
@@ -61,4 +69,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {logOut})(App);
