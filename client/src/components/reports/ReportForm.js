@@ -27,7 +27,7 @@ class ReportForm extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
+        this.props.submitReport(this.state)
         this.setState({
             firstName: '',
             lastName: '',
