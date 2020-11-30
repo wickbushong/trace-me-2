@@ -25,6 +25,10 @@ class App extends React.PureComponent {
     this.props.logOut()
   }
 
+  isLoggedIn = () => {
+    return !!this.props.business.id
+  }
+
   render() {
     return (
       <Router>
@@ -36,13 +40,13 @@ class App extends React.PureComponent {
                   <h1>THIS IS THE HOMEPAGE. DO SOMETHING ABOUT IT</h1>
               </Route>
               <Route path="/login">
-                <LogInPage />
+                {this.isLoggedIn() ? <Redirect to="/visits" /> : <LogInPage />}
               </Route>
               <Route path="/signup">
-                <SignUpPage />
+                {this.isLoggedIn() ? <Redirect to="/visits" /> : <SignUpPage />}
               </Route>
               <Route path="/visits">
-                <VisitsPage />
+                {this.isLoggedIn() ? <VisitsPage /> : <Redirect to="/login" /> }
               </Route>
               <Route path="/report">
                 <ReportPage />
