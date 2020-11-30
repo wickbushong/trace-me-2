@@ -12,6 +12,7 @@ import Navigation from './navigation/Navigation'
 import LogInPage from './containers/LogInPage'
 import SignUpPage from './containers/SignUpPage'
 import VisitsPage from './containers/VisitsPage'
+import ReportPage from './containers/ReportPage'
 
 class App extends React.Component {
   
@@ -33,6 +34,9 @@ class App extends React.Component {
               </Route>
               <Route path="/log">
                 <VisitsPage />
+              </Route>
+              <Route path="/report">
+                <ReportPage />
               </Route>
             </Switch>
           </Container>
