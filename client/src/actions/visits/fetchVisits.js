@@ -1,4 +1,4 @@
-export const fetchVisits = (businessId) => {
+export default function fetchVisits(businessId) {
     return (dispatch) => {
         // dispatch({ type: 'LOADING_VISITS' });
         let options = {

@@ -1,23 +1,30 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
+import ActiveVisit from '../components/visits/ActiveVisit'
+import Button from 'react-bootstrap/Button'
 
 class CurrentVisitorsList extends React.Component {
+    componentDidMount() {
+        this.props.fetchVisits()
+    }
+
+    renderVisits(visits) {
+        return visits.map(visit => {
+            return <ActiveVisit visit={visit} />
+        })
+    }
 
     render() {
-        const business = this.props.business
+        // const {business, visits} = this.props
         return(
             <>
                 <br></br>
                 <h1 className="text-center">VISITORS</h1>
                 <br></br>
                 <ListGroup>
-                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                    <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                    <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                    {/* {this.renderVisits(this.props.visits)} */}
+                    <ListGroup.Item>blah <Button variant="info" size="sm" className="float-right">Check Out</Button></ListGroup.Item>
                 </ListGroup>
             </>
         )

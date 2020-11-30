@@ -45,7 +45,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    business: state.business
+    business: state.business,
+    visits: state.visits
   }
 }
 
