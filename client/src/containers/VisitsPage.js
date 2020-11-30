@@ -18,8 +18,12 @@ class VisitsPage extends React.PureComponent {
         this.props.checkIn(user, business.id)
     }
 
+    handleCheckOut = event => {
+        console.log(event)
+        
+    }
+
     handleFetch = () => {
-        // THIS IS A HARDCODED BUSINESS ID
         const {business} = this.props
         this.props.fetchVisits(business.id)
     }
@@ -30,7 +34,7 @@ class VisitsPage extends React.PureComponent {
             <Container>
                 <Row>
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
-                    <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} /></Col>
+                    <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} handleCheckOut={this.handleCheckOut} /></Col>
                 </Row>
             </Container>
         )

@@ -11,7 +11,7 @@ class CurrentVisitorsList extends React.PureComponent {
 
     renderVisits(visits) {
         return visits.map(visit => {
-            return <ActiveVisit visit={visit} />
+            return <ActiveVisit visit={visit} handleCheckOut={this.props.handleCheckOut} />
         })
     }
 
@@ -30,11 +30,5 @@ class CurrentVisitorsList extends React.PureComponent {
         )
     }
 }
-
-// const mapStateToProps = state => {
-//     return {
-//         business: state.business
-//     }
-// }
 
 export default CurrentVisitorsList
