@@ -40,10 +40,12 @@ class Api::V1::VisitsController < ApplicationController
   # PATCH/PUT /visits/1
   def update
     binding.pry
-    if @visit.update(visit_params)
-      render json: @visit
+    visit = Visit.find_by(id: params[:visit_id])
+    visit.time_out = Time.now
+    if visit.save
+      render json: visit
     else
-      render json: @visit.errors, status: :unprocessable_entity
+      render json: visit.errors, status: :unprocessable_entity
     end
   end
 
