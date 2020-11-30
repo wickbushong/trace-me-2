@@ -15,7 +15,12 @@ class Api::V1::ReportsController < ApplicationController
 
   # POST /reports
   def create
-    @report = Report.new(report_params)
+    if user = User.find_by(user_params)
+      report = Report.create(test_date: report_params['test_date'], user_id: user.id)
+      
+    end
+    binding.pry
+
 
     if @report.save
       render json: @report, status: :created
@@ -44,8 +49,12 @@ class Api::V1::ReportsController < ApplicationController
       @report = Report.find(params[:id])
     end
 
+    def user_params
+      params.require(:report).permit(:first_name, :last_name, :email)
+    end
+
     # Only allow a trusted parameter "white list" through.
     def report_params
-      params.require(:report).permit(:test_type)
+      params.require(:report).permit(:test_date)
     end
 end
