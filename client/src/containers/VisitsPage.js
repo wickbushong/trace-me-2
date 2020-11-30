@@ -9,6 +9,7 @@ import CurrentVisitorsList from './CurrentVisitorsList'
 import CheckInForm from '../components/visits/CheckInForm'
 
 import checkIn from '../actions/visits/checkIn'
+import checkOut from '../actions/visits/checkOut'
 import fetchVisits from '../actions/visits/fetchVisits'
 
 class VisitsPage extends React.PureComponent {
@@ -20,7 +21,7 @@ class VisitsPage extends React.PureComponent {
 
     handleCheckOut = event => {
         console.log(event)
-        
+
     }
 
     handleFetch = () => {
@@ -46,4 +47,4 @@ const mapStateToProps = state => ({
     visits: state.visits
 })
 
-export default connect(mapStateToProps, {checkIn, fetchVisits})(VisitsPage)
+export default connect(mapStateToProps, {fetchVisits, checkIn, checkOut})(VisitsPage)
