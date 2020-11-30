@@ -14,7 +14,5 @@ export default function checkIn(user, businessId) {
             .then(response => response.json())
                 .then(result => dispatch({type: 'CHECKIN_VISIT', payload: result}))
 
-        // type: 'CHECKIN_VISIT',
-        // visitor
     }
 }

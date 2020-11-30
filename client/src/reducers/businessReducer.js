@@ -1,13 +1,10 @@
-export const businessReducer = (state = {business: {}}, action) => {
+export const businessReducer = (state = {}, action) => {
     console.log(action)
     switch (action.type) {
         case "ADD_BUSINESS":
-            return {
-                ...state,
-                business: action.payload
-            }
+            return action.payload
         case "LOGOUT_BUSINESS":
-            return {business: {}}
+            return {}
         default:
             return state
     }

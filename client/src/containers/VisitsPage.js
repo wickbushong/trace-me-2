@@ -32,7 +32,6 @@ class VisitsPage extends React.Component {
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
                     <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} /></Col>
                 </Row>
-                    <button onClick={this.handleFetch}>fetch em up</button>
             </Container>
         )
     }
