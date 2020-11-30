@@ -14,18 +14,18 @@ import fetchVisits from '../actions/visits/fetchVisits'
 class VisitsPage extends React.PureComponent {
 
     handleCheckIn = user => {
-        // THIS IS A HARDCODED BUSINESS ID
-        this.props.checkIn(user, 1)
+        const {business} = this.props
+        this.props.checkIn(user, business.id)
     }
 
     handleFetch = () => {
         // THIS IS A HARDCODED BUSINESS ID
-        this.props.fetchVisits(1)
+        const {business} = this.props
+        this.props.fetchVisits(business.id)
     }
 
     render() {
         const {business, visits} = this.props
-        console.log(visits)
         return (
             <Container>
                 <Row>
