@@ -23,8 +23,6 @@ class VisitsPage extends React.Component {
         this.props.fetchVisits(1)
     }
 
-
-
     render() {
         const {business, visits} = this.props
         console.log(visits)

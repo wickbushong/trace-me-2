@@ -12,7 +12,7 @@ export default function checkIn(user, businessId) {
 
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, visit_options)
             .then(response => response.json())
-                .then(result => console.log(result))
+                .then(result => dispatch({type: 'CHECKIN_VISIT', payload: result}))
 
         // type: 'CHECKIN_VISIT',
         // visitor

@@ -16,7 +16,8 @@ class CurrentVisitorsList extends React.Component {
     }
 
     render() {
-        // const {business, visits} = this.props
+        // console.log(this.props)
+        const {business, visits} = this.props
         return(
             <>
                 <br></br>

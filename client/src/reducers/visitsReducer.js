@@ -17,9 +17,7 @@ export const visitsReducer = (state = [], action) => {
             //     loading: false
             // }
         case 'CHECKIN_VISIT':
-            return {
-                state
-            }
+            return [...state, action.payload]
         case 'CHECKOUT_VISIT':
             return {
                 state
