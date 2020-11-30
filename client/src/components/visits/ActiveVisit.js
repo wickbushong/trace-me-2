@@ -6,7 +6,7 @@ class ActiveVisit extends React.Component {
 
     render() {
         return (
-            <ListGroup.Item>{this.props.visit.user.firstName} {this.props.visit.user.lastName} <Button variant="info" size="sm" className="float-right">Check Out</Button></ListGroup.Item>
+            <ListGroup.Item>{this.props.visit.user.first_name} {this.props.visit.user.last_name} <Button variant="info" size="sm" className="float-right">Check Out</Button></ListGroup.Item>
         )
     }
 

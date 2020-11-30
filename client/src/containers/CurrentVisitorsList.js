@@ -24,8 +24,7 @@ class CurrentVisitorsList extends React.PureComponent {
                 <h1 className="text-center">VISITORS</h1>
                 <br></br>
                 <ListGroup>
-                    {/* {this.renderVisits(this.props.visits)} */}
-                    <ListGroup.Item>blah <Button variant="info" size="sm" className="float-right">Check Out</Button></ListGroup.Item>
+                    {this.renderVisits(this.props.visits)}
                 </ListGroup>
             </>
         )

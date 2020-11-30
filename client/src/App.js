@@ -14,7 +14,7 @@ import SignUpPage from './containers/SignUpPage'
 import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
 
-class App extends React.Component {
+class App extends React.PureComponent {
   
   render() {
     return (

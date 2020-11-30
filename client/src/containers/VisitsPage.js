@@ -11,7 +11,7 @@ import CheckInForm from '../components/visits/CheckInForm'
 import checkIn from '../actions/visits/checkIn'
 import fetchVisits from '../actions/visits/fetchVisits'
 
-class VisitsPage extends React.Component {
+class VisitsPage extends React.PureComponent {
 
     handleCheckIn = user => {
         // THIS IS A HARDCODED BUSINESS ID
