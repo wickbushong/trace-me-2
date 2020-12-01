@@ -46,6 +46,8 @@ class ReportForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleOnSubmit}>
+                <br></br>
+                <h1 className="text-center">SUBMIT A REPORT</h1>
                 <label htmlFor="formName">Name</label>                    
                 <InputGroup controlId="formName" className="mb-3" id="formName">
                     <Form.Control 

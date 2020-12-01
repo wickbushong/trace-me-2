@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import submitReport from '../actions/reports/submitReport'
 
 import ReportForm from '../components/reports/ReportForm'
+import ReportVisitList from '../components/reports/ReportVisitList'
 
 class ReportPage extends React.Component {
 
@@ -19,8 +20,12 @@ class ReportPage extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                    <h1 className="text-center">SUBMIT A REPORT</h1>
                         <ReportForm submitReport={this.handleSubmitReport}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {}
                     </Col>
                 </Row>
             </Container>
@@ -28,4 +33,10 @@ class ReportPage extends React.Component {
     }
 }
 
-export default connect(null, {submitReport})(ReportPage)
+const mapStateToProps = state => {
+    return {
+        report: state.report
+    }
+}
+
+export default connect(mapStateToProps, {submitReport})(ReportPage)
