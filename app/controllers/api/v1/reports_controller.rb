@@ -17,9 +17,10 @@ class Api::V1::ReportsController < ApplicationController
   def create
     if user = User.find_by(user_params)
       report = Report.create(test_date: report_params['test_date'], user_id: user.id)
-      
+      binding.pry
+      flag_visits = report.flag_visits
+      overlap_visits = flag_visits.map(visit => visit.overlap_visits)
     end
-    binding.pry
 
 
     if @report.save

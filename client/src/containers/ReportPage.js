@@ -8,9 +8,9 @@ import submitReport from '../actions/reports/submitReport'
 
 import ReportForm from '../components/reports/ReportForm'
 
-class ReportsPage extends React.Component {
+class ReportPage extends React.Component {
 
-    handleSubmitReport(report) {
+    handleSubmitReport = (report) => {
         this.props.submitReport(report)
     }
 
@@ -28,4 +28,4 @@ class ReportsPage extends React.Component {
     }
 }
 
-export default connect(null, {submitReport})(ReportsPage)
+export default connect(null, {submitReport})(ReportPage)

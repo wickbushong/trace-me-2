@@ -13,7 +13,7 @@ class ReportForm extends React.Component {
             firstName: '',
             lastName: '',
             email: '',
-            date: ''
+            testDate: ''
         }
     }
 
@@ -27,20 +27,27 @@ class ReportForm extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
+        // debugger
+        let button = event.target.querySelector('button')
+        button.classList.remove('btn-info')
+        button.classList.add('btn-outline-danger')
+        button.innerText = 'REPORT SUBMITTED'
+        button.disabled = true
+        let inputs = event.target.querySelectorAll('.form-control')
+        Array.from(inputs).map(input => input.disabled = true)
         this.props.submitReport(this.state)
-        this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            date: ''
-        })
+        // this.setState({
+        //     firstName: '',
+        //     lastName: '',
+        //     email: ''
+        // })
     }
 
     render() {
         return (
             <Form onSubmit={this.handleOnSubmit}>
                 <label htmlFor="formName">Name</label>                    
-                <InputGroup className="mb-3" id="formName">
+                <InputGroup controlId="formName" className="mb-3" id="formName">
                     <Form.Control 
                         type="text" 
                         placeholder="first"
@@ -76,7 +83,7 @@ class ReportForm extends React.Component {
                     <Form.Control 
                         type="date"
                         className="form-control datetimepicker-input" 
-                        name="date"
+                        name="testDate"
                         value={this.state.date}
                         onChange={this.handleOnChange}
                     />

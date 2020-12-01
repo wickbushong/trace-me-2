@@ -16,6 +16,6 @@ class Visit < ApplicationRecord
         users = self.overlap_visits.map do |v|
             v.user
         end
-        users.uniq
+        # users.uniq
     end
 end

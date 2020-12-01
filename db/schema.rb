@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_194808) do
     t.datetime "time_in"
     t.datetime "time_out"
     t.boolean "flagged"
+    t.integer "overlap_time"
     t.boolean "employee"
     t.integer "party_size"
     t.datetime "created_at", precision: 6, null: false

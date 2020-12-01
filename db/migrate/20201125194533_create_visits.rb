@@ -6,6 +6,7 @@ class CreateVisits < ActiveRecord::Migration[6.0]
       t.timestamp :time_in
       t.timestamp :time_out
       t.boolean :flagged
+      t.integer :overlap_time
       t.boolean :employee
       t.integer :party_size
 
