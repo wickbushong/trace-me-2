@@ -1,4 +1,5 @@
 class Api::V1::ReportsController < ApplicationController
+  skip_before_action :authorized, only: [:create]
   before_action :set_report, only: [:show, :update, :destroy]
 
   # GET /reports
