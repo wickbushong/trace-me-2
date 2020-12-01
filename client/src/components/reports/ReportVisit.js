@@ -9,7 +9,12 @@ class ReportVisit extends React.PureComponent {
 
     renderOverlaps = (visit) => {
         return visit.overlap_visits.map(overlap => {
-            return <ListGroup.Item>{overlap.user.first_name} {overlap.user.last_name}</ListGroup.Item>
+            let user = overlap.user
+            let timeIn = new Date(overlap.time_in)
+            let timeOut = new Date(overlap.time_out)
+            return <ListGroup.Item key={overlap.id} >
+                {user.first_name} {user.last_name} // {user.email} // {user.phone} <span className="float-right">{timeIn.toLocaleTimeString()} to {timeOut.toLocaleTimeString()}</span>
+            </ListGroup.Item>
         })
     }
 
