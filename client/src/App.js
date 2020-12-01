@@ -14,6 +14,7 @@ import LogInPage from './containers/LogInPage'
 import SignUpPage from './containers/SignUpPage'
 import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
+import HomePage from './containers/HomePage'
 
 import logOut from './actions/businesses/logOut'
 import JWTLogIn from './actions/businesses/JWTLogIn'
@@ -44,7 +45,7 @@ class App extends React.PureComponent {
           <Container>
             <Switch>
               <Route exact path="/">
-                  <h1>THIS IS THE HOMEPAGE. DO SOMETHING ABOUT IT</h1>
+                  <HomePage />
               </Route>
               <Route path="/login">
                 {this.isLoggedIn() ? <Redirect to="/visits" /> : <LogInPage />}
