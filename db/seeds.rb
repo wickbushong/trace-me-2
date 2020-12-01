@@ -28,7 +28,7 @@ Business.create(
 User.create(
     first_name: "Wick",
     last_name: "Bushong",
-    phone: "7138185446",
+    phone: "9876543210",
     email: "wick@bushong.com"
 )
 
