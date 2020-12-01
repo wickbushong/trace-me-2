@@ -1,5 +1,5 @@
 class VisitSerializer < ActiveModel::Serializer
-  attributes :id, :user, :business_id, :time_in, :business
+  attributes :id, :user, :business_id, :time_in, :time_out, :business
   attribute :overlap_visits, if: :flagged?
 
   def overlap_visits
