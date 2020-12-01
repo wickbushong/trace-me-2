@@ -12,7 +12,7 @@ export default function submitReport(report) {
 
         fetch(`http://localhost:3001/api/v1/reports`, report_options)
             .then(response => response.json())
-                .then(result => console.log(result))
+                .then(result => dispatch({type: 'ADD_REPORT', payload: result}))
 
     }
 }
