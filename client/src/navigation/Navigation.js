@@ -16,14 +16,7 @@ class Navigation extends React.PureComponent {
                 <Navbar.Brand as={NavLink} to="/">TraceMe</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    { business.id ? <LoggedInNav logOut={this.props.logOut}/> : <AnonymousNav />}
-                    {/* <Nav className="container-fluid">
-                        <Nav.Link as={NavLink} to="/login">Log In</Nav.Link>
-                        <Nav.Link as={NavLink} to="/signup">Sign Up</Nav.Link>
-                        <Nav.Link as={NavLink} to="/visits">Visitor Log</Nav.Link>
-                        <Nav.Link as={NavLink} to="/report">Report</Nav.Link>
-                        <Nav.Link className="ml-auto" as={NavLink} to='/logout' onClick={logOut} >Log Out</Nav.Link>
-                    </Nav> */}
+                    { business.id ? <LoggedInNav logOut={this.props.logOut} business={business} /> : <AnonymousNav />}
                 </Navbar.Collapse>
             </Navbar>
         )
