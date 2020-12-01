@@ -7,21 +7,24 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 class ReportVisit extends React.PureComponent {
 
+    renderOverlaps = (visit) => {
+        return visit.overlap_visits.map(overlap => {
+            return <ListGroup.Item>{overlap.user.first_name} {overlap.user.last_name}</ListGroup.Item>
+        })
+    }
+
     render() {
         const {visit} = this.props
-        // debugger
+        const week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        let time = new Date(visit.time_in)
         return (
             <Card>
                 <Accordion.Toggle as={Card.Header} eventKey={visit.id} >
-                    Click me!
+                    {visit.business.name} // {week[time.getDay()]}, {time.toLocaleString()}
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={visit.id} >
                     <ListGroup>
-                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                        {this.renderOverlaps(visit)}                        
                     </ListGroup>
                 </Accordion.Collapse>
             </Card>
