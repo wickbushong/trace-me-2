@@ -13,7 +13,7 @@ class Navigation extends React.PureComponent {
         const {business} = this.props
         return (
             <Navbar bg="dark" variant="dark" sticky="top" expand="md" >
-                <Navbar.Brand as={NavLink} to="/">TraceMe</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/">{business.id ? business.name : "TraceMe"}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     { business.id ? <LoggedInNav logOut={this.props.logOut} business={business} /> : <AnonymousNav />}
