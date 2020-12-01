@@ -16,6 +16,7 @@ class ReportPage extends React.Component {
     }
 
     render() {
+        const {report} = this.props
         return (
             <Container>
                 <Row>
@@ -25,7 +26,7 @@ class ReportPage extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        {}
+                        {/* { !!report.length ? <ReportVisitList report={report} /> : <h1 className="text-center">FLAGGED VISITS WILL APPEAR HERE</h1> } */}
                     </Col>
                 </Row>
             </Container>
