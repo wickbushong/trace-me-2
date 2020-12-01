@@ -12,3 +12,4 @@ class VisitSerializer < ActiveModel::Serializer
     !!object.flagged
   end
 end
+

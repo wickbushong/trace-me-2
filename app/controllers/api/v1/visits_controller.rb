@@ -17,7 +17,9 @@ class Api::V1::VisitsController < ApplicationController
 
   # GET /visits/1
   def show
-    render json: @visit
+    visit = Visit.find(params[:id])
+    visit.flagged = true
+    render json: visit
   end
 
   # POST /visits
@@ -56,7 +58,7 @@ class Api::V1::VisitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_visit
-      @visit = Visit.find(params[:id])
+      visit = Visit.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
