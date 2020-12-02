@@ -3,6 +3,7 @@ class ReportSerializer < ActiveModel::Serializer
 
   def flag_visits
     object.flag_visits.map do |visit|
+      visit.flagged = true
       VisitSerializer.new(visit)
     end
   end
