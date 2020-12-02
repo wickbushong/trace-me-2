@@ -34,7 +34,7 @@ class VisitsPage extends React.PureComponent {
             <Container>
                 <Row>
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
-                    <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} handleCheckOut={this.handleCheckOut} /></Col>
+                    { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} handleCheckOut={this.handleCheckOut} /></Col> : null }
                 </Row>
             </Container>
         )

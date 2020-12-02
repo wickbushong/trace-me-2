@@ -10,7 +10,7 @@ import ReportForm from '../components/reports/ReportForm'
 import ReportVisitList from '../components/reports/ReportVisitList'
 
 class ReportPage extends React.Component {
-
+    
     handleSubmitReport = (report) => {
         this.props.submitReport(report)
     }
