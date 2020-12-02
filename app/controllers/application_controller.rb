@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
     
     def encode_token(payload)
         # payload => { beef: 'steak' }
+        # TODO: add expiration for token
         JWT.encode(payload, ENV['SECRET_KEY'])
         # jwt string: "eyJhbGciOiJIUzI1NiJ9.eyJiZWVmIjoic3RlYWsifQ._IBTHTLGX35ZJWTCcY30tLmwU9arwdpNVxtVU0NpAuI"
     end
@@ -20,7 +21,8 @@ class ApplicationController < ActionController::API
                 JWT.decode(token, ENV['SECRET_KEY'], true, algorithm: 'HS256')
                 # JWT.decode => [{ "beef"=>"steak" }, { "alg"=>"HS256" }]
             rescue JWT::DecodeError
-                nil
+                {errors: ["invalid token"]}
+            # TODO: rescue from expired token
             end
         end
     end

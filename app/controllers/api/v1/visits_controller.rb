@@ -8,10 +8,9 @@ class Api::V1::VisitsController < ApplicationController
     if params[:business_id]
       business = Business.find_by(id: params[:business_id])
       visits = business.active_visits
-  else
+    else
       visits = Visit.all
-  end
-
+    end
     render json: visits
   end
 
@@ -31,7 +30,6 @@ class Api::V1::VisitsController < ApplicationController
             business: business,
             time_in: Time.now
     )
-
     if visit.save
       render json: visit, status: :created
     else
