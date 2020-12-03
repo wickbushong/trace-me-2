@@ -14,6 +14,11 @@ import fetchVisits from '../actions/visits/fetchVisits'
 
 class VisitsPage extends React.PureComponent {
 
+    componentDidMount() {
+        const {business} = this.props
+        this.props.fetchVisits(business.id)
+    }
+    
     handleCheckIn = user => {
         const {business} = this.props
         this.props.checkIn(user, business.id)
@@ -24,8 +29,9 @@ class VisitsPage extends React.PureComponent {
     }
 
     handleFetch = () => {
-        const {business} = this.props
-        this.props.fetchVisits(business.id)
+        // const {business} = this.props
+        // this.props.fetchVisits(business.id)
+        console.log("list mounted")
     }
 
     render() {
