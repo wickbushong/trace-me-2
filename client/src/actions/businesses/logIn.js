@@ -16,5 +16,10 @@ export default function logInBusiness(business) {
                         dispatch({type: "ADD_BUSINESS", payload: result.business})
                     }
                 })
+                .catch(result => {
+                    console.log("hit CATCH - likely server error")
+                    console.log(result)
+                    debugger
+                })
     }
 }

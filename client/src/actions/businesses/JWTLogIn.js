@@ -19,5 +19,10 @@ export default function JWTLogIn(token) {
                         dispatch({type: "ADD_BUSINESS", payload: result})
                     }
                 })
+                .catch(result => {
+                    console.log("hit CATCH - likely server error")
+                    console.log(result)
+                    debugger
+                })
     }
 }

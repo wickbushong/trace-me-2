@@ -12,7 +12,19 @@ export default function checkIn(user, businessId) {
 
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, visit_options)
             .then(response => response.json())
-                .then(result => dispatch({type: 'CHECKIN_VISIT', payload: result}))
+            .then(result => {
+                if (result.errors) {
+                    console.log(result)
+                    debugger
+                } else { 
+                    dispatch({type: 'CHECKIN_VISIT', payload: result})
+                }
+            })
+            .catch(result => {
+                console.log("hit CATCH - likely server error")
+                console.log(result)
+                debugger
+            })
 
     }
 }
