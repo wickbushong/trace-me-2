@@ -15,6 +15,7 @@ import SignUpPage from './containers/SignUpPage'
 import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
 import HomePage from './containers/HomePage'
+import Error from './components/Error'
 
 import logOut from './actions/businesses/logOut'
 import JWTLogIn from './actions/businesses/JWTLogIn'
@@ -37,12 +38,18 @@ class App extends React.PureComponent {
     return !!this.props.business.id
   }
 
+  errorCheck = () => {
+     return !!Object.keys(this.props.errors).length
+  }
+
   render() {
+    const { errors } = this.props
     return (
       <Router>
         <div>
           <Navigation logOut={this.handleLogOut} ></Navigation>
           <Container id="top-container" >
+            { this.errorCheck() ? <Error errors={errors} /> : null }
             <Switch>
               <Route exact path="/">
                   <HomePage />
@@ -77,7 +84,8 @@ class App extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     business: state.business,
-    visits: state.visits
+    visits: state.visits,
+    errors: state.errors
   }
 }
 
