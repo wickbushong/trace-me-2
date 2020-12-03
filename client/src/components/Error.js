@@ -20,10 +20,9 @@ class Error extends React.PureComponent {
         let {errors} = this.props
         return (
             <>
-                { !!Object.keys(errors) ? (
+                { !!Object.keys(errors).length ? (
                     <Alert variant='danger' className="container">
                         {Object.keys(errors)}
-                        {/* <Button className="close" ><span aria-hidden="true"></span></Button> */}
                         <button type="button" class="close" aria-label="Close" onClick={() => this.props.resetErrors()}>
                             <span aria-hidden="true">&times;</span>
                         </button>
