@@ -17,7 +17,6 @@ class Api::V1::BusinessesController < ApplicationController
   # POST /businesses
   def create
     business = Business.new(business_params)
-    binding.pry
     if business.save
       token = encode_token({business_id: business.id})
       render json: {business: BusinessSerializer.new(business), jwt: token}, status: :created
