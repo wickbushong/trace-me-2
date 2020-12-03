@@ -3,6 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import ActiveVisit from '../components/visits/ActiveVisit'
 
 class CurrentVisitorsList extends React.PureComponent {
+    // ToDo: use hooks to animate collapse of visitor list?
 
     renderVisits(visits) {
         return visits.map(visit => {
