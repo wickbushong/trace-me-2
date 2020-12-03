@@ -7,6 +7,8 @@ export const errorReducer = (state = {}, action) => {
             return {loginError: action.payload}
         case 'RESET_ERRORS':
             return {}
+        case 'LOGOUT_BUSINESS':
+            return {}
         default:
             return state
     }

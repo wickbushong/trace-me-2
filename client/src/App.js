@@ -19,6 +19,7 @@ import Error from './components/Error'
 
 import logOut from './actions/businesses/logOut'
 import JWTLogIn from './actions/businesses/JWTLogIn'
+import resetErrors from './actions/resetErrors'
 
 
 class App extends React.PureComponent {
@@ -49,7 +50,7 @@ class App extends React.PureComponent {
         <div>
           <Navigation logOut={this.handleLogOut} ></Navigation>
           <Container id="top-container" >
-            { this.errorCheck() ? <Error errors={errors} /> : null }
+            {/* { this.errorCheck() ? <Error errors={errors} /> : null } */}
             <Switch>
               <Route exact path="/">
                   <HomePage />
@@ -89,4 +90,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logOut, JWTLogIn})(App);
+export default connect(mapStateToProps, {logOut, JWTLogIn, resetErrors})(App);

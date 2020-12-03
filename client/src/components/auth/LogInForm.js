@@ -23,7 +23,6 @@ class LogInForm extends React.PureComponent {
         event.preventDefault()
         this.props.logInBusiness(this.state)
         this.setState({
-            email: '',
             password: ''
         })
     }

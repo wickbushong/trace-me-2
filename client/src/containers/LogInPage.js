@@ -4,9 +4,10 @@ import LogInForm from '../components/auth/LogInForm'
 import logInBusiness from '../actions/businesses/logIn'
 
 const LogInPage = props => {
-    let {logInBusiness} = props
+    let {errors, logInBusiness} = props
     return (
         <div>
+            <Error errors={errors}/>
             <h1>come on in</h1>
             <LogInForm logInBusiness={logInBusiness}/>
         </div>
@@ -15,7 +16,8 @@ const LogInPage = props => {
 
 const mapStateToProps = state => {
     return {
-        business: state.business
+        business: state.business,
+        errors: state.errors
     }
 }
 
