@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import resetErrors from '../actions/resetErrors'
-
 import Alert from 'react-bootstrap/Alert'
+
+import resetErrors from '../actions/resetErrors'
 
 class Error extends React.PureComponent {
 
