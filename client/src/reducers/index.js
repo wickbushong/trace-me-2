@@ -7,6 +7,6 @@ import {errorReducer} from './errorReducer'
 export const rootReducer = combineReducers({
     visits: visitsReducer, 
     business: businessReducer,
-    report: reportReducer
+    report: reportReducer,
     errors: errorReducer
 })
