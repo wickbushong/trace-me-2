@@ -1,13 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import submitReport from '../actions/reports/submitReport'
-
 import ReportForm from '../components/reports/ReportForm'
 import ReportVisitList from '../components/reports/ReportVisitList'
+import Error from '../components/Error'
+
+import submitReport from '../actions/reports/submitReport'
 
 class ReportPage extends React.Component {
     
@@ -16,10 +18,11 @@ class ReportPage extends React.Component {
     }
 
     render() {
-        const {report} = this.props
+        const {report, errors} = this.props
         return (
             <Container>
                 <Row>
+                    <Error errors={errors} />
                     <Col>
                         <ReportForm submitReport={this.handleSubmitReport}/>
                     </Col>
@@ -35,10 +38,8 @@ class ReportPage extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        report: state.report
-    }
+const mapStateToProps = ({report, errors}) => {
+    return {report, errors}
 }
 
 export default connect(mapStateToProps, {submitReport})(ReportPage)
