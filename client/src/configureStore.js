@@ -6,8 +6,10 @@ import {rootReducer} from './reducers/index'
 
 export default function configureStore(){
   const initialState = {
-    business: {},
-    visits: []
+    business: null,
+    visits: null,
+    report: null,
+    errors: null
   }
   const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
   return store
