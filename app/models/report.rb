@@ -7,11 +7,16 @@ class Report < ApplicationRecord
             visit_date = v.time_in.to_date
             (visit_date - test_date) <= 14 || (test_date - visit_date) <= 14
         end
-        to_flag.each do |v|
-            v.flagged = true
-            v.save
-        end
+        # to_flag.each do |v|
+        #     v.flagged = true
+        #     v.save
+        # end
         return to_flag
+    end
+
+    def visits
+        self.test_date
+        self.user.visits.where("time_in <= ? OR time_in >= ?", self.test_date.to_date + 14, self.test_date.to_date + 14)
     end
 
     def users_to_notify
