@@ -42,7 +42,7 @@ class App extends React.PureComponent {
       <Router>
         <div>
           <Navigation logOut={this.handleLogOut} ></Navigation>
-          <Container>
+          <Container id="top-container" >
             <Switch>
               <Route exact path="/">
                   <HomePage />
