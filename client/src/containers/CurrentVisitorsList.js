@@ -3,9 +3,6 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import ActiveVisit from '../components/visits/ActiveVisit'
 
 class CurrentVisitorsList extends React.PureComponent {
-    componentDidMount() {
-        this.props.fetchVisits()
-    }
 
     renderVisits(visits) {
         return visits.map(visit => {

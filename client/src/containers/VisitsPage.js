@@ -28,19 +28,13 @@ class VisitsPage extends React.PureComponent {
         this.props.checkOut(visitId)
     }
 
-    handleFetch = () => {
-        // const {business} = this.props
-        // this.props.fetchVisits(business.id)
-        console.log("list mounted")
-    }
-
     render() {
         const {business, visits} = this.props
         return (
             <Container>
                 <Row>
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
-                    { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} fetchVisits={this.handleFetch} handleCheckOut={this.handleCheckOut} /></Col> : null }
+                    { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} handleCheckOut={this.handleCheckOut} /></Col> : null }
                 </Row>
             </Container>
         )

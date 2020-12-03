@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 class ActiveVisit extends React.Component {
 
     handleOnClick = event => {
-        console.log(event)
         this.props.handleCheckOut(this.props.visit.id)
     }
     
