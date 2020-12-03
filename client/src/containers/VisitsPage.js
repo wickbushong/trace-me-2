@@ -1,12 +1,13 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import {connect} from 'react-redux'
-
 import CurrentVisitorsList from './CurrentVisitorsList'
 import CheckInForm from '../components/visits/CheckInForm'
+import Error from '../components/Error'
 
 import checkIn from '../actions/visits/checkIn'
 import checkOut from '../actions/visits/checkOut'
@@ -29,10 +30,11 @@ class VisitsPage extends React.PureComponent {
     }
 
     render() {
-        const {business, visits} = this.props
+        const {business, visits, errors} = this.props
         return (
             <Container>
                 <Row>
+                    <Error errors={errors} />
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
                     { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} handleCheckOut={this.handleCheckOut} /></Col> : null }
                 </Row>
@@ -41,9 +43,8 @@ class VisitsPage extends React.PureComponent {
     }
 }
 
-const mapStateToProps = state => ({
-    business: state.business,
-    visits: state.visits
-})
+const mapStateToProps = ({business, errors, visits}) => {
+    return {business, errors, visits}
+}
 
 export default connect(mapStateToProps, {fetchVisits, checkIn, checkOut})(VisitsPage)
