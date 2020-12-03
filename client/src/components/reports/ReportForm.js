@@ -1,10 +1,8 @@
 import React from 'react'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
-// var DateTimeField = require('react-bootstrap-datetimepicker');
-// import {DateTime} from 'react-datetime-bootstrap'
-
 
 class ReportForm extends React.Component {
     constructor() {

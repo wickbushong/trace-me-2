@@ -1,6 +1,6 @@
 import React from 'react'
+
 import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 
