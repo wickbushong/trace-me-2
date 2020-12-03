@@ -6,5 +6,6 @@ export const errorReducer = (state = {}, action) => {
         case 'RESET_ERRORS':
             return {}
         default:
+            return state
     }
 }
