@@ -39,9 +39,9 @@ class App extends React.PureComponent {
     return !!this.props.business.id
   }
 
-  errorCheck = () => {
-     return !!Object.keys(this.props.errors).length
-  }
+  // errorCheck = () => {
+  //    return !!Object.keys(this.props.errors).length
+  // }
 
   render() {
     const { errors } = this.props
