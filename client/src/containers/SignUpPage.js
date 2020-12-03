@@ -14,10 +14,4 @@ const SignUpPage = props => {
     )
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         business: state.business
-//     }
-// }
-
 export default connect(null, {addBusiness})(SignUpPage)

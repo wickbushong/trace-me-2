@@ -9,15 +9,14 @@ class CurrentVisitorsList extends React.PureComponent {
 
     renderVisits(visits) {
         return visits.map(visit => {
-            return <ActiveVisit visit={visit} handleCheckOut={this.props.handleCheckOut} />
+            return <ActiveVisit visit={visit} key={visit.id} handleCheckOut={this.props.handleCheckOut} />
         })
     }
 
     render() {
-        const {business, visits} = this.props
+        const {visits} = this.props
         return(
             <>
-                <br></br>
                 <h1 className="text-center">VISITORS</h1>
                 <br></br>
                 <ListGroup>
