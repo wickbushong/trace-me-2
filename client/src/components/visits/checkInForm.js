@@ -38,7 +38,6 @@ class CheckInForm extends React.PureComponent {
     render() {
         return (
             <Form onSubmit={this.handleOnSubmit}>
-                <br></br>
                 <h1 className="text-center">CHECK IN</h1>
 
                 <label htmlFor="formName">Name</label>                    
