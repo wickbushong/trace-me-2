@@ -9,11 +9,11 @@ export default function logInBusiness(business) {
             .then(response => response.json())
                 .then(result => {
                     if (result.errors) {
-                        console.log(result)
-                        debugger
+                        dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else { 
                         localStorage.jwt = result.jwt
                         dispatch({type: "ADD_BUSINESS", payload: result.business})
+                        // ^SHOULD THIS JUST BE PAYLOAD: RESULT???
                     }
                 })
                 .catch(result => {

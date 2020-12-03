@@ -13,7 +13,7 @@ class Api::V1::AuthController < ApplicationController
             token = encode_token({ business_id: business.id })
             render json: { business: BusinessSerializer.new(business), jwt: token }, status: :accepted
           else
-            render json: { message: 'Invalid email or password' }, status: :unauthorized
+            render json: {errors: [*business.errors.full_messages,'Invalid email or password']}
           end
         end
     end
