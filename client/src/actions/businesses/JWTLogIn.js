@@ -12,7 +12,6 @@ export default function JWTLogIn(token) {
         fetch("http://localhost:3001/api/v1/auth", options)
             .then(response => response.json())
                 .then(result => {
-                    console.log(result)
                     dispatch({type: "ADD_BUSINESS", payload: result})
                 })
     }
