@@ -2,6 +2,8 @@ class Visit < ApplicationRecord
     belongs_to :user
     belongs_to :business
 
+    
+    
     def overlap_visits
         flagged_in = self.time_in
         flagged_out = self.time_out || Time.now
