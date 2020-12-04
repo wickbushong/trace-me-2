@@ -15,9 +15,10 @@ export default function submitReport(report) {
                 .then(result => {
                     if (result.errors) {
                         console.log(result)
-                        debugger
+                        dispatch({type: 'REPORT_ERROR', payload: result.errors})
                     } else { 
                         dispatch({type: 'ADD_REPORT', payload: result})
+                        dispatch({type: 'RESET_ERRORS'})
                     }
                 })
                 .catch(result => {

@@ -25,7 +25,6 @@ class ReportForm extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        // debugger
         let button = event.target.querySelector('button')
         button.classList.remove('btn-info')
         button.classList.add('btn-outline-danger')
@@ -34,11 +33,6 @@ class ReportForm extends React.Component {
         let inputs = event.target.querySelectorAll('.form-control')
         Array.from(inputs).map(input => input.disabled = true)
         this.props.submitReport(this.state)
-        // this.setState({
-        //     firstName: '',
-        //     lastName: '',
-        //     email: ''
-        // })
     }
 
     render() {
