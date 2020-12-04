@@ -15,7 +15,8 @@ export default function JWTLogIn(token) {
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else { 
-                        dispatch({type: "ADD_BUSINESS", payload: result})
+                        dispatch({type: "LOGIN_BUSINESS", payload: result})
+                        dispatch({type: "RESET_ERRORS"})
                     }
                 })
                 .catch(result => {
