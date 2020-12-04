@@ -14,8 +14,7 @@ export default function checkOut(visitId) {
             .then(response => response.json())
             .then(result => {
                 if (result.errors) {
-                    console.log(result)
-                    debugger
+                    dispatch({type: "VISIT_ERROR", payload: result.errors})
                 } else { 
                     dispatch({type: 'CHECKOUT_VISIT', payload: result})
                 }

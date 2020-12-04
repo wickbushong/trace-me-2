@@ -13,10 +13,9 @@ export default function fetchVisits(businessId) {
             .then(response => response.json())
             .then(result => {
                 if (result.errors) {
-                    console.log(result)
-                    debugger
+                    dispatch({type: "VISIT_ERROR", payload: result.errors})
                 } else { 
-                    dispatch({type: 'ADD_VISITS', payload: result})
+                    dispatch({type: 'RENDER_VISITS', payload: result})
                 }
             })
             .catch(result => {
