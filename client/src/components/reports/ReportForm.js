@@ -46,7 +46,7 @@ class ReportForm extends React.Component {
             <Form onSubmit={this.handleOnSubmit}>
                 <h1 className="text-center">SUBMIT A REPORT</h1>
                 <label htmlFor="formName">Name</label>                    
-                <InputGroup controlId="formName" className="mb-3" id="formName">
+                <InputGroup className="mb-3" id="formName">
                     <Form.Control 
                         type="text" 
                         placeholder="first"
@@ -65,7 +65,7 @@ class ReportForm extends React.Component {
                     />
                 </InputGroup>
 
-                <Form.Group controlId="formEmail">
+                <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="email"
@@ -77,12 +77,13 @@ class ReportForm extends React.Component {
                     />
                 </Form.Group>
 
-                <Form.Group controlId="formDate">
+                <Form.Group>
                     <Form.Label>Date Test Was Administered</Form.Label>
                     <Form.Control 
                         type="date"
                         className="form-control datetimepicker-input" 
                         name="testDate"
+                        required
                         value={this.state.date}
                         onChange={this.handleOnChange}
                     />
