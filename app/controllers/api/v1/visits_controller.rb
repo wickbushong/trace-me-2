@@ -33,7 +33,7 @@ class Api::V1::VisitsController < ApplicationController
     if visit.save
       render json: visit, status: :created
     else
-      render json: visit.errors, status: :unprocessable_entity
+      render json: {errors: visit.errors}, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class Api::V1::VisitsController < ApplicationController
     if visit.save
       render json: visit
     else
-      render json: visit.errors, status: :unprocessable_entity
+      render json: {errors: visit.errors}, status: :unprocessable_entity
     end
   end
 
