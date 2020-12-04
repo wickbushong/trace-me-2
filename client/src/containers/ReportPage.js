@@ -28,7 +28,7 @@ class ReportPage extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        { !!report.id ? <ReportVisitList report={report} /> : <h1 className="text-center">FLAGGED VISITS WILL APPEAR BELOW</h1> }
+                        { !!report.id ? <ReportVisitList report={report} /> : <p className="text-center">FLAGGED VISITS WILL APPEAR BELOW</p> }
                         
                     </Col>
                 </Row>
