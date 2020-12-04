@@ -13,10 +13,8 @@ export default function checkIn(user, businessId) {
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, visit_options)
             .then(response => response.json())
             .then(result => {
-                debugger
                 if (result.errors) {
-                    console.log(result)
-                    debugger
+                    dispatch({type: "VISIT_ERROR", payload: result.errors})
                 } else { 
                     dispatch({type: 'CHECKIN_VISIT', payload: result})
                 }

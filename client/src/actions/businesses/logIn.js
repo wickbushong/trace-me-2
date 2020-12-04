@@ -9,7 +9,6 @@ export default function logInBusiness(business) {
             .then(response => response.json())
                 .then(result => {
                     if (result.errors) {
-                        // debugger
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else { 
                         localStorage.jwt = result.jwt

@@ -14,7 +14,6 @@ export default function submitReport(report) {
             .then(response => response.json())
                 .then(result => {
                     if (result.errors) {
-                        console.log(result)
                         dispatch({type: 'REPORT_ERROR', payload: result.errors})
                     } else { 
                         dispatch({type: 'ADD_REPORT', payload: result})
