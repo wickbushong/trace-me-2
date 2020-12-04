@@ -34,7 +34,7 @@ class VisitsPage extends React.PureComponent {
         return (
             <Container>
                 <Row>
-                    <Error errors={errors} />
+                    {/* <Error errors={errors} /> */}
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
                     { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} handleCheckOut={this.handleCheckOut} /></Col> : null }
                 </Row>

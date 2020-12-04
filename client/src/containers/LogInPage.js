@@ -10,7 +10,7 @@ const LogInPage = props => {
     let {logInBusiness, errors} = props
     return (
         <div>
-            <Error errors={errors} />
+            {/* <Error errors={errors} /> */}
             <h1>come on in</h1>
             <LogInForm logInBusiness={logInBusiness}/>
         </div>

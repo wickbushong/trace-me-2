@@ -39,9 +39,9 @@ class App extends React.PureComponent {
     return !!this.props.business.id
   }
 
-  // errorCheck = () => {
-  //    return !!Object.keys(this.props.errors).length
-  // }
+  errorCheck = () => {
+     return !!Object.keys(this.props.errors).length
+  }
 
   render() {
     const { errors } = this.props
@@ -50,7 +50,7 @@ class App extends React.PureComponent {
         <div>
           <Navigation logOut={this.handleLogOut} ></Navigation>
           <Container id="top-container" >
-            {/* { this.errorCheck() ? <Error errors={errors} /> : null } */}
+            { this.errorCheck() ? <Error errors={errors} /> : null }
             <Switch>
               <Route exact path="/">
                   <HomePage />

@@ -5,6 +5,8 @@ export const errorReducer = (state = {}, action) => {
             return {serverError: action.payload};
         case 'LOGIN_ERROR':
             return {loginError: action.payload}
+        case 'SIGNUP_ERROR':
+            return {signupError: action.payload}
         case 'RESET_ERRORS':
             return {}
         case 'LOGOUT_BUSINESS':

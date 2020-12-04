@@ -22,7 +22,7 @@ class ReportPage extends React.Component {
         return (
             <Container>
                 <Row>
-                    <Error errors={errors} />
+                    {/* <Error errors={errors} /> */}
                     <Col>
                         <ReportForm submitReport={this.handleSubmitReport}/>
                     </Col>
