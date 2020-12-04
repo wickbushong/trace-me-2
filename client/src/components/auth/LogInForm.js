@@ -23,9 +23,6 @@ class LogInForm extends React.PureComponent {
     handleOnSubmit = event => {
         event.preventDefault()
         this.props.logInBusiness(this.state)
-        this.setState({
-            password: ''
-        })
     }
 
     render() {
