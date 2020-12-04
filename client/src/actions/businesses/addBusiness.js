@@ -9,8 +9,7 @@ export default function addBusiness(business) {
             .then(response => response.json())
                 .then(result => {
                     if (result.errors) {
-                        console.log(result)
-                        debugger
+                        dispatch({type: "SIGNUP_ERROR", payload: result.errors})
                     } else { 
                         localStorage.jwt = result.jwt
                         dispatch({type: "ADD_BUSINESS", payload: result.business})
