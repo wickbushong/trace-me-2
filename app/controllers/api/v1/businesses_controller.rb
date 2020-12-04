@@ -21,7 +21,7 @@ class Api::V1::BusinessesController < ApplicationController
       token = encode_token({business_id: business.id})
       render json: {business: BusinessSerializer.new(business), jwt: token}, status: :created
     else
-      render json: business.errors, status: :unprocessable_entity
+      render json: {errors: business.errors}, status: :unprocessable_entity
     end
   end
 

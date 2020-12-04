@@ -7,9 +7,9 @@ import resetErrors from '../actions/resetErrors'
 
 class Error extends React.PureComponent {
 
-    componentWillUnmount() {
-        this.props.resetErrors()
-    }
+    // componentWillUnmount() {
+    //     this.props.resetErrors()
+    // }
     
     handleClose = () => {
         this.props.resetErrors()
