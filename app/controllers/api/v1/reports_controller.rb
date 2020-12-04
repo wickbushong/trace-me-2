@@ -17,13 +17,14 @@ class Api::V1::ReportsController < ApplicationController
   # POST /reports
   def create
     user = User.find_by(user_params)
-      report = Report.new(test_date: report_params['test_date'], user_id: user.id)
+    report = Report.new(test_date: report_params['test_date'], user_id: user.id)
 
-      if report.save
-        render json: report, status: :created
-      else
-        render json: {errors: report.errors}, status: :unprocessable_entity
-      end
+    if report.save
+      render json: report, status: :created
+    else
+      binding.pry
+      render json: {errors: report.errors}, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /reports/1

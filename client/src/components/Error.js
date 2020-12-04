@@ -6,23 +6,19 @@ import Alert from 'react-bootstrap/Alert'
 import resetErrors from '../actions/resetErrors'
 
 class Error extends React.PureComponent {
-
-    // componentWillUnmount() {
-    //     this.props.resetErrors()
-    // }
     
     handleClose = () => {
         this.props.resetErrors()
     }
 
     render() {
-        // const [show, setShow] = useState(true);
         let {errors} = this.props
+        let keys = Object.keys(errors)
         return (
             <>
-                { !!Object.keys(errors).length ? (
+                { !!keys.length ? (
                     <Alert variant='danger' className="container">
-                        {Object.keys(errors)}
+                        {keys.map(key => `${key} - ${errors[key]}`)}
                         <button type="button" class="close" aria-label="Close" onClick={() => this.props.resetErrors()}>
                             <span aria-hidden="true">&times;</span>
                         </button>
