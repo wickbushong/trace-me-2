@@ -5,9 +5,12 @@ import Accordion from 'react-bootstrap/Accordion'
 import Badge from 'react-bootstrap/Badge'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-class ReportVisit extends React.PureComponent {
-
-    renderOverlaps = (visit) => {
+const ReportVisit = ({visit}) => {
+    const week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    let timeIn = new Date(visit.time_in)
+    let timeOut = new Date(visit.time_out)
+    
+    const renderOverlaps = (visit) => {
         return visit.overlap_visits.map(overlap => {
             let user = overlap.user
             let timeIn = new Date(overlap.time_in)
@@ -18,25 +21,19 @@ class ReportVisit extends React.PureComponent {
         })
     }
 
-    render() {
-        const {visit} = this.props
-        const week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        let timeIn = new Date(visit.time_in)
-        let timeOut = new Date(visit.time_out)
-        return (
-            <Card>
-                <Accordion.Toggle as={Card.Header} eventKey={visit.id} >
-                    {visit.business.name} -- {week[timeIn.getDay()]}, {timeIn.toLocaleString()} to {timeOut.toLocaleTimeString()}
-                    { Object.keys(visit.overlap_visits).length > 0 ? <Badge pill variant="danger" className="float-right">{visit.overlap_visits.length}</Badge> : null }
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey={visit.id} >
-                    <ListGroup>
-                        {this.renderOverlaps(visit)}                        
-                    </ListGroup>
-                </Accordion.Collapse>
-            </Card>
-        )
-    }
+    return (
+        <Card>
+            <Accordion.Toggle as={Card.Header} eventKey={visit.id} >
+                {visit.business.name} -- {week[timeIn.getDay()]}, {timeIn.toLocaleString()} to {timeOut.toLocaleTimeString()}
+                { Object.keys(visit.overlap_visits).length > 0 ? <Badge pill variant="danger" className="float-right">{visit.overlap_visits.length}</Badge> : null }
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey={visit.id} >
+                <ListGroup>
+                    {renderOverlaps(visit)}                        
+                </ListGroup>
+            </Accordion.Collapse>
+        </Card>
+    )
 }
 
 export default ReportVisit
