@@ -55,6 +55,9 @@ class App extends React.PureComponent {
               <Route exact path="/">
                   <HomePage />
               </Route>
+              <Route path="/logout"> 
+                {this.isLoggedIn() ? this.handleLogOut : <Redirect to="/login" />}
+              </Route>
               <Route path="/login">
                 {this.isLoggedIn() ? <Redirect to="/visits" /> : <LogInPage />}
               </Route>
@@ -66,9 +69,6 @@ class App extends React.PureComponent {
               </Route>
               <Route path="/report">
                 <ReportPage />
-              </Route>
-              <Route path="/logout"> 
-                <Redirect to="/login" />
               </Route>
               <Route path="/">
                 <Redirect to="/login" />
