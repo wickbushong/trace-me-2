@@ -5,8 +5,7 @@ import SignUpForm from '../components/auth/SignUpForm'
 
 import addBusiness from '../actions/businesses/addBusiness'
 
-const SignUpPage = props => {
-    let {addBusiness} = props
+const SignUpPage = ({addBusiness}) => {
     return (
         <div>
             <h1>let's get you signed up</h1>
@@ -16,8 +15,4 @@ const SignUpPage = props => {
     )
 }
 
-const mapStateToProps = ({errors}) => {
-    return {errors}
-}
-
-export default connect(mapStateToProps, {addBusiness})(SignUpPage)
+export default connect(null, {addBusiness})(SignUpPage)
