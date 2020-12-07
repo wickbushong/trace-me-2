@@ -2,12 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import SignUpForm from '../components/auth/SignUpForm'
-import Error from '../components/Error'
 
 import addBusiness from '../actions/businesses/addBusiness'
 
 const SignUpPage = props => {
-    let {addBusiness, errors} = props
+    let {addBusiness} = props
     return (
         <div>
             <h1>let's get you signed up</h1>

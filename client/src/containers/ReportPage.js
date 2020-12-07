@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col'
 
 import ReportForm from '../components/reports/ReportForm'
 import ReportVisitList from '../components/reports/ReportVisitList'
-import Error from '../components/Error'
 
 import submitReport from '../actions/reports/submitReport'
 
@@ -18,7 +17,7 @@ class ReportPage extends React.Component {
     }
 
     render() {
-        const {report, errors} = this.props
+        const {report} = this.props
         return (
             <Container>
                 <Row>

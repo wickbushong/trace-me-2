@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col'
 
 import CurrentVisitorsList from './CurrentVisitorsList'
 import CheckInForm from '../components/visits/CheckInForm'
-import Error from '../components/Error'
 
 import checkIn from '../actions/visits/checkIn'
 import checkOut from '../actions/visits/checkOut'
@@ -30,7 +29,7 @@ class VisitsPage extends React.PureComponent {
     }
 
     render() {
-        const {business, visits, errors} = this.props
+        const {business, visits} = this.props
         return (
             <Container>
                 <Row>
