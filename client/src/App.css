@@ -44,3 +44,7 @@ body {
 #top-container {
   padding-top: 20px;
 }
+
+/* .row [class*='col-'] {
+  transition: flex 2s ease-in-out;
+} */
