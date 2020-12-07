@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_194808) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.text "username"
     t.text "first_name"
     t.text "last_name"
     t.text "phone"
