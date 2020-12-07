@@ -9,7 +9,6 @@ import CurrentVisitorsList from './CurrentVisitorsList'
 import CheckInForm from '../components/visits/CheckInForm'
 
 import checkIn from '../actions/visits/checkIn'
-import checkOut from '../actions/visits/checkOut'
 import fetchVisits from '../actions/visits/fetchVisits'
 
 class VisitsPage extends React.PureComponent {
@@ -24,17 +23,13 @@ class VisitsPage extends React.PureComponent {
         this.props.checkIn(user, business.id)
     }
 
-    handleCheckOut = visitId => {
-        this.props.checkOut(visitId)
-    }
-
     render() {
         const {business, visits} = this.props
         return (
             <Container>
                 <Row>
                     <Col><CheckInForm business={business} handleCheckIn={this.handleCheckIn}/></Col>
-                    { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} handleCheckOut={this.handleCheckOut} /></Col> : null }
+                    { !!visits.length ? <Col><CurrentVisitorsList business={business} visits={visits} /></Col> : null }
                 </Row>
             </Container>
         )
@@ -45,4 +40,4 @@ const mapStateToProps = ({business, errors, visits}) => {
     return {business, errors, visits}
 }
 
-export default connect(mapStateToProps, {fetchVisits, checkIn, checkOut})(VisitsPage)
+export default connect(mapStateToProps, {fetchVisits, checkIn})(VisitsPage)

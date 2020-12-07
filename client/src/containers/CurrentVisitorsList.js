@@ -1,14 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import ListGroup from 'react-bootstrap/ListGroup'
 import ActiveVisit from '../components/visits/ActiveVisit'
+
+import checkOut from '../actions/visits/checkOut'
 
 class CurrentVisitorsList extends React.PureComponent {
     // ToDo: use hooks to animate collapse of visitor list?
 
     renderVisits(visits) {
         return visits.map(visit => {
-            return <ActiveVisit visit={visit} key={visit.id} handleCheckOut={this.props.handleCheckOut} />
+            return <ActiveVisit visit={visit} key={visit.id} handleCheckOut={this.props.checkOut} />
         })
     }
 
@@ -26,4 +29,4 @@ class CurrentVisitorsList extends React.PureComponent {
     }
 }
 
-export default CurrentVisitorsList
+export default connect(null, {checkOut})(CurrentVisitorsList)
