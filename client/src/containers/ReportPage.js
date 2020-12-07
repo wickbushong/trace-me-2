@@ -10,34 +10,31 @@ import ReportVisitList from '../components/reports/ReportVisitList'
 
 import submitReport from '../actions/reports/submitReport'
 
-class ReportPage extends React.Component {
+const ReportPage = ({report, submitReport}) => {
     
-    handleSubmitReport = (report) => {
-        this.props.submitReport(report)
+    const handleSubmitReport = (report) => {
+        submitReport(report)
     }
 
-    render() {
-        const {report} = this.props
-        return (
-            <Container>
-                <Row>
-                    <Col>
-                        <ReportForm submitReport={this.handleSubmitReport}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        { !!report.id ? <ReportVisitList report={report} /> : <p className="text-center">FLAGGED VISITS WILL APPEAR BELOW</p> }
-                        
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <ReportForm submitReport={handleSubmitReport}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    { !!report.id ? <ReportVisitList report={report} /> : <p className="text-center">FLAGGED VISITS WILL APPEAR BELOW</p> }
+                    
+                </Col>
+            </Row>
+        </Container>
+    )
 }
 
-const mapStateToProps = ({report, errors}) => {
-    return {report, errors}
+const mapStateToProps = ({report}) => {
+    return {report}
 }
 
 export default connect(mapStateToProps, {submitReport})(ReportPage)
