@@ -5,8 +5,7 @@ import LogInForm from '../components/auth/LogInForm'
 
 import logInBusiness from '../actions/businesses/logIn'
 
-const LogInPage = props => {
-    let {logInBusiness} = props
+const LogInPage = ({logInBusiness}) => {
     return (
         <div>
             <h1>come on in</h1>
@@ -15,8 +14,4 @@ const LogInPage = props => {
     )
 }
 
-const mapStateToProps = ({business, errors}) => {
-    return {business, errors}
-}
-
-export default connect(mapStateToProps, {logInBusiness})(LogInPage)
+export default connect(null, {logInBusiness})(LogInPage)
