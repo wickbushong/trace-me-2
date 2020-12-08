@@ -23,12 +23,11 @@ class Visit < ApplicationRecord
     end
     
     def rectify_doubles
-        if self.user.visits.active.last.business == self.business
-            errors.add(:user, :invalid, message: "already checked in")
+        if self.user.visits.active.last.business == self.business && self.user.visits.active.last != self
+            errors.add(:user, :invalid, message: "#{user.first_name} already checked in")
             throw(:abort)
         else
             user.visits.active.each do |v| 
-            binding.pry
             v.update(
                 time_out: Time.now    
             ) unless v == self
