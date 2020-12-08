@@ -2,7 +2,7 @@ class Visit < ApplicationRecord
     belongs_to :user
     belongs_to :business
 
-    
+    scope :active, -> {where(time_out: nil)}
     
     def overlap_visits
         flagged_in = self.time_in

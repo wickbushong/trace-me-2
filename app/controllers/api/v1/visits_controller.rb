@@ -4,7 +4,7 @@ class Api::V1::VisitsController < ApplicationController
   def index
     if params[:business_id]
       business = Business.find_by(id: params[:business_id])
-      visits = business.active_visits
+      visits = business.visits.active
     else
       visits = Visit.all
     end
@@ -20,6 +20,7 @@ class Api::V1::VisitsController < ApplicationController
   def create
     user = User.find_or_create_by(user_params)
     business = Business.find_by(id: params[:business_id])
+    check_double_visit(user, business)
     visit = Visit.new(
             user: user,
             business: business,
@@ -47,6 +48,17 @@ class Api::V1::VisitsController < ApplicationController
   # def set_visit
   #   visit = Visit.find(params[:id])
   # end
+
+  def check_double_visit(user, business)
+    if user.visits.active.last.business == business
+      render json: {errors: ["this person is already checked in"]}
+    elsif !user.visits.active.empty?
+      user.visits.active.each do |visit| 
+        visit.time_out = Time.now
+        visit.save
+      end
+    end
+  end
 
   def visit_params
     params.require(:visit).permit(:user_id, :business_id, :id)
