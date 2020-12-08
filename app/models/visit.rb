@@ -27,9 +27,11 @@ class Visit < ApplicationRecord
             errors.add(:user, :invalid, message: "already checked in")
             throw(:abort)
         else
-            user.visits.active.each do |visit| 
-            visit.time_out = Time.now
-            visit.save
+            user.visits.active.each do |v| 
+            binding.pry
+            v.update(
+                time_out: Time.now    
+            ) unless v == self
             end
         end
     end
