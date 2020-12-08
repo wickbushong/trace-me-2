@@ -20,9 +20,7 @@ export default function checkIn(user, businessId) {
                 }
             })
             .catch(result => {
-                console.log("hit CATCH - likely server error")
-                console.log(result)
-                debugger
+                dispatch({type: "SERVER_ERROR", payload: "unable to record visit"})
             })
 
     }

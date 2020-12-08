@@ -19,9 +19,7 @@ export default function fetchVisits(businessId) {
                 }
             })
             .catch(result => {
-                console.log("hit CATCH - likely server error")
-                console.log(result)
-                debugger
+                dispatch({type: "SERVER_ERROR", payload: "could not fetch active visits"})
             })
     }
 }

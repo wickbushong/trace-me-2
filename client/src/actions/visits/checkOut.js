@@ -20,9 +20,7 @@ export default function checkOut(visitId) {
                 }
             })
             .catch(result => {
-                console.log("hit CATCH - likely server error")
-                console.log(result)
-                debugger
+                dispatch({type: "SERVER_ERROR", payload: "check out failed"})
             })
     }
 }

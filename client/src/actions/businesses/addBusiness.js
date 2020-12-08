@@ -18,9 +18,7 @@ export default function addBusiness(business) {
                     }
                 })
                 .catch(result => {
-                    console.log("hit CATCH - likely server error")
-                    console.log(result)
-                    debugger
+                    dispatch({type: "SERVER_ERROR", payload: result.message})
                 })
     }
 }

@@ -21,9 +21,7 @@ export default function submitReport(report) {
                     }
                 })
                 .catch(result => {
-                    console.log("hit CATCH - likely server error")
-                    console.log(result)
-                    debugger
+                    dispatch({type: "SERVER_ERROR", payload: "report was not recorded"})
                 })
 
     }
