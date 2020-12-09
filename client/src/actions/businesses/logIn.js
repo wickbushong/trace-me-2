@@ -13,7 +13,6 @@ export default function logInBusiness(business) {
                     } else { 
                         localStorage.jwt = result.jwt
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
-                        // ^SHOULD THIS JUST BE PAYLOAD: RESULT???
                         dispatch({type: "RESET_ERRORS"})
                     }
                 })
