@@ -12,7 +12,7 @@ export const errorReducer = (state = {}, action) => {
             return {visitError: action.payload}
         case 'RESET_ERRORS':
             return {}
-        case 'LOGOUT_BUSINESS':
+        case 'LOGOUT':
             return {}
         default:
             return state
