@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 
 class UserSignUpForm extends React.PureComponent {
@@ -26,11 +27,11 @@ class UserSignUpForm extends React.PureComponent {
 
     handleConfirm = event => {
         event.preventDefault()
-        if (event.target.value !== this.state.password) {
-            event.target.classList.add("is-invalid")
+        if (this.state.confirmPassword !== this.state.password) {
+            document.getElementById("confirmPassword").classList.add("is-invalid")
         } else {
-            event.target.classList.remove("is-invalid")
-            event.target.classList.add("is-valid")
+            document.getElementById("confirmPassword").classList.remove("is-invalid")
+            document.getElementById("confirmPassword").classList.add("is-valid")
         }
     }
 
@@ -46,17 +47,26 @@ class UserSignUpForm extends React.PureComponent {
     render() {
         return (
             <Form onSubmit={this.handleOnSubmit}>
-                <Form.Group>
-                    <Form.Label>Name*</Form.Label>
+                <label htmlFor="formName">Name</label>                    
+                <InputGroup className="mb-3" id="formName">
                     <Form.Control 
-                        type="text"
-                        name="name"
-                        placeholder="Enter business name"
+                        type="text" 
+                        placeholder="first"
+                        name="firstName"
                         required
-                        value={this.state.name}
+                        value={this.state.firstName}
                         onChange={this.handleOnChange}
                     />
-                </Form.Group>
+                    <Form.Control 
+                        type="text"
+                        placeholder="last"
+                        name="lastName"
+                        required
+                        value={this.state.lastName}
+                        onChange={this.handleOnChange}
+                    />
+                </InputGroup>
+                
                 <Form.Group>
                     <Form.Label>Phone</Form.Label>
                     <Form.Control 
@@ -70,17 +80,7 @@ class UserSignUpForm extends React.PureComponent {
                         no dashes or parentheses please
                     </Form.Text>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control 
-                        as="textarea" 
-                        rows={3}
-                        name="location"
-                        placeholder="Enter physical address"
-                        value={this.state.location}
-                        onChange={this.handleOnChange}
-                    />
-                </Form.Group>
+                
                 <Form.Group>
                     <Form.Label>Email*</Form.Label>
                     <Form.Control
@@ -92,6 +92,7 @@ class UserSignUpForm extends React.PureComponent {
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
+
                 <Form.Group>
                     <Form.Label>Password*</Form.Label>
                     <Form.Control 
@@ -102,15 +103,16 @@ class UserSignUpForm extends React.PureComponent {
                         required
                         value={this.state.password}
                         onChange={this.handleOnChange}
+                        onKeyUp={this.handleConfirm}
                     />
                 </Form.Group>   
+                
                 <Form.Group>
                     <Form.Control 
                         type="password"
                         name="confirmPassword"
                         id="confirmPassword"
                         placeholder="Confirm password"
-                        className="invalid"
                         required
                         value={this.state.confirmPassword}
                         onChange={this.handleOnChange}
