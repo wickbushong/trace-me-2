@@ -11,7 +11,8 @@ class BusinessSignUpForm extends React.PureComponent {
             phone: '',
             location: '',
             email: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         }
     }
 
@@ -23,22 +24,37 @@ class BusinessSignUpForm extends React.PureComponent {
         }})
     }
 
+    handleConfirm = event => {
+        event.preventDefault()
+        if (event.target.value !== this.state.password) {
+            event.target.classList.add("is-invalid")
+        } else {
+            event.target.classList.remove("is-invalid")
+            event.target.classList.add("is-valid")
+        }
+    }
+
+    passwordsMatch = () => {
+        return !!(this.state.password === this.state.confirmPassword)
+    }
+    
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addBusiness(this.state)
-        this.setState({
-            name: '',
-            phone: '',
-            location: '',
-            email: '',
-            password: ''
-        })
+        this.passwordsMatch() ? this.props.addBusiness(this.state) : document.getElementById("confirmPassword").focus();
+        // this.setState({
+        //     name: '',
+        //     phone: '',
+        //     location: '',
+        //     email: '',
+        //     password: '',
+        //     confirmPassword: ''
+        // })
     }
 
     render() {
         return (
             <Form onSubmit={this.handleOnSubmit}>
-                <Form.Group controlId="formName">
+                <Form.Group>
                     <Form.Label>Name*</Form.Label>
                     <Form.Control 
                         type="text"
@@ -49,7 +65,7 @@ class BusinessSignUpForm extends React.PureComponent {
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formPhone">
+                <Form.Group>
                     <Form.Label>Phone</Form.Label>
                     <Form.Control 
                         type="tel"
@@ -62,7 +78,7 @@ class BusinessSignUpForm extends React.PureComponent {
                         no dashes or parentheses please
                     </Form.Text>
                 </Form.Group>
-                <Form.Group controlId="formLocation">
+                <Form.Group>
                     <Form.Label>Location</Form.Label>
                     <Form.Control 
                         as="textarea" 
@@ -73,7 +89,7 @@ class BusinessSignUpForm extends React.PureComponent {
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formEmail">
+                <Form.Group>
                     <Form.Label>Email*</Form.Label>
                     <Form.Control
                         type="email"
@@ -84,16 +100,33 @@ class BusinessSignUpForm extends React.PureComponent {
                         onChange={this.handleOnChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formPassword">
+                <Form.Group>
                     <Form.Label>Password*</Form.Label>
                     <Form.Control 
                         type="password"
                         name="password"
+                        id="password"
                         placeholder="Enter password"
                         required
                         value={this.state.password}
                         onChange={this.handleOnChange}
                     />
+                </Form.Group>   
+                <Form.Group>
+                    <Form.Control 
+                        type="password"
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        placeholder="Confirm password"
+                        className="invalid"
+                        required
+                        value={this.state.confirmPassword}
+                        onChange={this.handleOnChange}
+                        onKeyUp={this.handleConfirm}
+                    />
+                    <div class="invalid-feedback">
+                       passwords don't match
+                    </div>
                 </Form.Group>
                 <Button variant="info" type="submit">
                     Sign Up
