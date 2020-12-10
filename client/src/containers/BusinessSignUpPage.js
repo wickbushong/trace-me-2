@@ -5,7 +5,7 @@ import SignUpForm from '../components/auth/SignUpForm'
 
 import addBusiness from '../actions/businesses/addBusiness'
 
-const SignUpPage = ({addBusiness}) => {
+const BusinessSignUpPage = ({addBusiness}) => {
     return (
         <div>
             <h1>let's get you signed up</h1>
@@ -15,4 +15,4 @@ const SignUpPage = ({addBusiness}) => {
     )
 }
 
-export default connect(null, {addBusiness})(SignUpPage)
+export default connect(null, {addBusiness})(BusinessSignUpPage)

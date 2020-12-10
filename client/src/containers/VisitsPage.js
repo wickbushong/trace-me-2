@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import CurrentVisitorsList from './CurrentVisitorsList'
-import CheckInForm from '../components/visits/CheckInForm'
+import CheckInForm from '../components/visits/checkInForm'
 
 import checkIn from '../actions/visits/checkIn'
 import fetchVisits from '../actions/visits/fetchVisits'
