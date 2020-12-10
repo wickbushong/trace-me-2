@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/Container'
 import Navigation from './navigation/Navigation'
 import LogInPage from './containers/LogInPage'
 import BusinessSignUpPage from './containers/BusinessSignUpPage'
+import UserSignUpPage from './containers/UserSignUpPage'
 import VisitsPage from './containers/VisitsPage'
 import ReportPage from './containers/ReportPage'
 import HomePage from './containers/HomePage'
@@ -61,8 +62,11 @@ class App extends React.PureComponent {
               <Route path="/login">
                 {this.isLoggedIn() ? <Redirect to="/visits" /> : <LogInPage />}
               </Route>
-              <Route path="/signup">
+              <Route path="/signup/business">
                 {this.isLoggedIn() ? <Redirect to="/visits" /> : <BusinessSignUpPage />}
+              </Route>
+              <Route path="/signup/user">
+                {this.isLoggedIn() ? <Redirect to="/" /> : <UserSignUpPage />}
               </Route>
               <Route path="/visits">
                 {this.isLoggedIn() ? <VisitsPage /> : <Redirect to="/login" /> }

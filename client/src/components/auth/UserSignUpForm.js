@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class UserSignUpForm extends React.PureComponent {
-    onstructor() {
+    constructor() {
         super()
         this.state = {
             firstName: '',

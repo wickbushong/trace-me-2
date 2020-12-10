@@ -8,7 +8,7 @@ import addBusiness from '../actions/businesses/addBusiness'
 const BusinessSignUpPage = ({addBusiness}) => {
     return (
         <div>
-            <h1>let's get you signed up</h1>
+            <h1>start welcoming your customers the right way</h1>
             <p>all we need is some basic info about your business - don't worry, we'll keep it to ourselves</p>
             <BusinessSignUpForm addBusiness={addBusiness} />
         </div>

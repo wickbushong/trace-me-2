@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import UserSignUpForm from '../components/auth/UserSignUpForm'
 
-import addUser from '../actions/businesses/addUser'
+import addUser from '../actions/users/addUser'
 
 const UserSignUpPage = ({addUser}) => {
     return (
