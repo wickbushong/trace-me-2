@@ -3,7 +3,7 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-class SignUpForm extends React.PureComponent {
+class BusinessSignUpForm extends React.PureComponent {
     constructor() {
         super()
         this.state = {
@@ -103,4 +103,4 @@ class SignUpForm extends React.PureComponent {
     }
 }
 
-export default SignUpForm
+export default BusinessSignUpForm
