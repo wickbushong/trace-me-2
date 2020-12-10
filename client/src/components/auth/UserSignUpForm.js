@@ -27,7 +27,7 @@ class UserSignUpForm extends React.PureComponent {
 
     handleConfirm = event => {
         event.preventDefault()
-        if (this.state.confirmPassword !== this.state.password) {
+        if (!this.passwordsMatch()) {
             document.getElementById("confirmPassword").classList.add("is-invalid")
         } else {
             document.getElementById("confirmPassword").classList.remove("is-invalid")
