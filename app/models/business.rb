@@ -4,6 +4,7 @@ class Business < ApplicationRecord
 
     has_secure_password
     validates :email, uniqueness: true, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :name, presence: true
 
     def active_visits
         self.visits.select do |v|
