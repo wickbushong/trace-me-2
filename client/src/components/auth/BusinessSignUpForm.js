@@ -26,11 +26,11 @@ class BusinessSignUpForm extends React.PureComponent {
 
     handleConfirm = event => {
         event.preventDefault()
-        if (event.target.value !== this.state.password) {
-            event.target.classList.add("is-invalid")
+        if (!this.passwordsMatch()) {
+            document.getElementById("confirmPassword").classList.add("is-invalid")
         } else {
-            event.target.classList.remove("is-invalid")
-            event.target.classList.add("is-valid")
+            document.getElementById("confirmPassword").classList.remove("is-invalid")
+            document.getElementById("confirmPassword").classList.add("is-valid")
         }
     }
 
@@ -110,6 +110,7 @@ class BusinessSignUpForm extends React.PureComponent {
                         required
                         value={this.state.password}
                         onChange={this.handleOnChange}
+                        onKeyUp={this.handleConfirm}
                     />
                 </Form.Group>   
                 <Form.Group>

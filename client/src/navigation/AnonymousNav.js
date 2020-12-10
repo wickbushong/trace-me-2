@@ -11,7 +11,7 @@ const AnonymousNav = () => {
         <Nav className="container-fluid">
             <Nav.Link as={NavLink} to="/login">Log In</Nav.Link>
             <NavDropdown title="Sign Up" id="basic-nav-dropdown">
-                <NavDropdown.Item as={NavLink}to="/signup/business">For Businesses</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/signup/business">For Businesses</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to="/signup/user">For Customers</NavDropdown.Item>
             </NavDropdown>
