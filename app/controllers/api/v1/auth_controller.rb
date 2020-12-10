@@ -4,6 +4,7 @@ class Api::V1::AuthController < ApplicationController
     def create
       user = User.find_by(params[:email])
       if user && user.authenticate(params[:password])
+        binding.pry
         created_jwt = issue_token({id: user.id})
         cookies.signed[:jwt] = {value:  created_jwt, httponly: true}
         render json: {username: user.username}
