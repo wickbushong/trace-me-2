@@ -7,6 +7,7 @@ import {rootReducer} from './reducers/index'
 export default function configureStore(){
   const initialState = {
     business: {},
+    user: {},
     visits: [],
     report: {},
     errors: []

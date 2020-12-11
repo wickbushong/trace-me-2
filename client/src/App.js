@@ -18,7 +18,7 @@ import ReportPage from './containers/ReportPage'
 import HomePage from './containers/HomePage'
 import Error from './components/Error'
 
-import logOut from './actions/businesses/logOut'
+import logOut from './actions/logOut'
 import JWTLogIn from './actions/businesses/JWTLogIn'
 import resetErrors from './actions/resetErrors'
 

@@ -1,5 +1,4 @@
 export default function addUser(user) {
-    debugger
     return (dispatch) => {
         let options = {
             method: 'POST',
@@ -12,11 +11,9 @@ export default function addUser(user) {
                     debugger
                     if (result.errors) {
                         dispatch({type: "SIGNUP_ERROR", payload: result.errors})
-                    } else { 
-                        localStorage.jwt = result.jwt
-                        dispatch({type: "LOGIN_BUSINESS", payload: result.user})
+                    } else {
+                        dispatch({type: "LOGIN_USER", payload: result.user})
                         dispatch({type: "RESET_ERRORS"})
-
                     }
                 })
                 .catch(result => {
