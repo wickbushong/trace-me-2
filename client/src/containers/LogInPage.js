@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 
 import LogInForm from '../components/auth/LogInForm'
 
-import logInBusiness from '../actions/businesses/logIn'
+import logIn from '../actions/logIn'
 
-const LogInPage = ({logInBusiness}) => {
+const LogInPage = ({logIn}) => {
     return (
         <div>
             <h1>come on in</h1>
-            <LogInForm logInBusiness={logInBusiness}/>
+            <LogInForm logIn={logIn}/>
         </div>
     )
 }
 
-export default connect(null, {logInBusiness})(LogInPage)
+export default connect(null, {logIn})(LogInPage)
