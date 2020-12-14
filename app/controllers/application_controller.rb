@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     include ::ActionController::Cookies
-    before_action :authorized
+    # before_action :authorized
     
     def encode_token(payload)
         # payload => { beef: 'steak' }
@@ -44,5 +44,9 @@ class ApplicationController < ActionController::API
 
     def authorized
         render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+    end
+
+    def snake_case_params
+        request.parameters.deep_transform_keys!(&:underscore)
     end
 end
