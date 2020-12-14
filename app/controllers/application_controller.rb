@@ -2,6 +2,14 @@ class ApplicationController < ActionController::API
     include ::ActionController::Cookies
     # before_action :authorized
     
+    def jwt_key
+        Rails.application.credentials.jwt_key
+    end
+
+    def issue_token(entity)
+        JWT.encode({(entity.class.to_s.downcase + "_id").to_sym => entity.id}, jwt_key, 'HS256')
+    end
+    
     def encode_token(payload)
         # payload => { beef: 'steak' }
         # TODO: add expiration for token

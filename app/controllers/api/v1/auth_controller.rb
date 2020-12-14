@@ -2,13 +2,11 @@ class Api::V1::AuthController < ApplicationController
     # skip_before_action :authorized, only: [:create]
 
     def create
-      binding.pry
-      user = User.find_by(params[:email])
-      if user && user.authenticate(params[:password])
-        binding.pry
-        created_jwt = issue_token({id: user.id})
+      entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
+      if entity && entity.authenticate(params[:entity][:password])
+        created_jwt = issue_token(entity)
         cookies.signed[:jwt] = {value:  created_jwt, httponly: true}
-        render json: {username: user.username}
+        render json: {entity.class.to_s.downcase.to_sym => entity}
       else
         render json: {
           error: 'Username or password incorrect'
