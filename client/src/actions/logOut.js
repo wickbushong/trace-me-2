@@ -1,4 +1,4 @@
 export default function logOut() {
-    delete localStorage.jwt
+    // delete localStorage.jwt
     return {type: "LOGOUT"}
 }

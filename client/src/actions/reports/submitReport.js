@@ -2,10 +2,11 @@ export default function submitReport(report) {
     return (dispatch) => {
         let report_options = {
             method: "POST",
+            credentials: "true",
             headers: {
                 "Content-Type": "application/json", 
-                "Accept": "application/json",
-                Authorization: `Bearer ${localStorage.jwt}`
+                "Accept": "application/json"
+                // Authorization: `Bearer ${localStorage.jwt}`
             },
             body: JSON.stringify({report})
         }

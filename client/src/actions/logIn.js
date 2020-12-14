@@ -4,11 +4,6 @@ export default function logIn(entity) {
             method: "POST",
             credentials: 'include',
             headers: {"Content-Type": "application/json", "Accept": "application/json"},
-            // headers: {
-            //     "Content-Type": "application/json",
-            //     "Accept": "application/json",
-            //     "Access-Control-Allow-Credentials": "true"
-            // },
             body: JSON.stringify({entity})
         }
         fetch("http://localhost:3001/api/v1/auth", options)
