@@ -14,8 +14,8 @@ class Api::V1::AuthController < ApplicationController
         # render json: {entity.class.to_s.downcase.to_sym => entity}
       else
         render json: {
-          error: 'Username or password incorrect'
-        }, status: 404
+          errors: ['incorrect email or password']
+        }
       end
     end
     
