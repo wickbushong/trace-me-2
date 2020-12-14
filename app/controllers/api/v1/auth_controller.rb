@@ -5,8 +5,13 @@ class Api::V1::AuthController < ApplicationController
       entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
       if entity && entity.authenticate(params[:entity][:password])
         created_jwt = issue_token(entity)
-        cookies.signed[:jwt] = {value:  created_jwt, httponly: true}
-        render json: {entity.class.to_s.downcase.to_sym => entity}
+        cookies.signed[:jwt] = {
+          value:  created_jwt, 
+          httponly: true,
+          expires: 1.hour.from_now
+        }
+        render_serialized(entity)
+        # render json: {entity.class.to_s.downcase.to_sym => entity}
       else
         render json: {
           error: 'Username or password incorrect'
@@ -36,5 +41,13 @@ class Api::V1::AuthController < ApplicationController
 
     def business_login_params
         params.require(:business).permit(:email, :password)
+    end
+
+    def render_serialized(entity)
+      if entity.class.to_s == "User"
+        render json: {user: UserSerializer.new(entity)}
+      else
+        render json: {business: BusinessSerializer.new(entity)}
+      end
     end
 end
