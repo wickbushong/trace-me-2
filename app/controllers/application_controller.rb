@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     include ::ActionController::Cookies
-    # before_action :authorized
+    before_action :authenticate_entity
     
     def jwt_key
         Rails.application.credentials.jwt_key

@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApplicationController
-    # skip_before_action :authorized, only: [:create]
+    skip_before_action :authenticate_entity, only: [:create]
 
     def create
       entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])

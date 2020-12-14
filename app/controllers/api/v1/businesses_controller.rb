@@ -1,5 +1,5 @@
 class Api::V1::BusinessesController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authenticate_entity, only: [:create]
   # before_action :set_business, only: [:show, :update, :destroy]
 
   def create
