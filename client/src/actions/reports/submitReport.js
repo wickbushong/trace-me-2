@@ -2,7 +2,7 @@ export default function submitReport(report) {
     return (dispatch) => {
         let report_options = {
             method: "POST",
-            credentials: "true",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json", 
                 "Accept": "application/json"

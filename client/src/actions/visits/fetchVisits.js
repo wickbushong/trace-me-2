@@ -3,10 +3,11 @@ export default function fetchVisits(businessId) {
         // dispatch({ type: 'LOADING_VISITS' });
         let options = {
             method: "GET",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json", 
-                "Accept": "application/json",
-                Authorization: `Bearer ${localStorage.jwt}`
+                "Accept": "application/json"
+                // Authorization: `Bearer ${localStorage.jwt}`
             }}
 
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, options)
