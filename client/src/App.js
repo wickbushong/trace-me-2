@@ -25,11 +25,11 @@ import resetErrors from './actions/resetErrors'
 
 class App extends React.PureComponent {
   
-  componentDidMount() {
-    if (localStorage.jwt) {
-      this.props.JWTLogIn(localStorage.jwt)
-    }
-  }
+  // componentDidMount() {
+  //   if (localStorage.jwt) {
+  //     this.props.JWTLogIn(localStorage.jwt)
+  //   }
+  // }
   
   handleLogOut = () => {
     delete localStorage.jwt

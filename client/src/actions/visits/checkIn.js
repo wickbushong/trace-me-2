@@ -2,10 +2,11 @@ export default function checkIn(user, businessId) {
     return (dispatch) => {
         let visit_options = {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json", 
-                "Accept": "application/json",
-                Authorization: `Bearer ${localStorage.jwt}`
+                "Accept": "application/json"
+                // Authorization: `Bearer ${localStorage.jwt}`
             },
             body: JSON.stringify({user})
         }
