@@ -8,7 +8,6 @@ export default function addBusiness(business) {
         fetch("http://localhost:3001/api/v1/businesses", options)
             .then(response => response.json())
                 .then(result => {
-                    debugger
                     if (result.errors) {
                         dispatch({type: "SIGNUP_ERROR", payload: result.errors})
                     } else { 

@@ -11,10 +11,9 @@ class Api::V1::BusinessesController < ApplicationController
         httponly: true,
         expires: 1.hour.from_now
       }
-      binding.pry
       render json: {business: BusinessSerializer.new(business)}, status: :created
     else
-      render json: {errors: business.errors}, status: :unprocessable_entity
+      render json: {errors: business.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
