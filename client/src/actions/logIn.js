@@ -12,10 +12,11 @@ export default function logIn(entity) {
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else if (result.user) { 
+                        localStorage.loggedIn = true
                         dispatch({type: "LOGIN_USER", payload: result.user})
                         dispatch({type: "RESET_ERRORS"})
                     } else {
-                        // localStorage.jwt = result.jwt
+                        localStorage.loggedIn = true
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
                         dispatch({type: "RESET_ERRORS"})
                     }

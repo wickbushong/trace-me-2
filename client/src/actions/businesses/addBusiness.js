@@ -11,10 +11,9 @@ export default function addBusiness(business) {
                     if (result.errors) {
                         dispatch({type: "SIGNUP_ERROR", payload: result.errors})
                     } else { 
-                        // localStorage.jwt = result.jwt
+                        localStorage.loggedIn = true
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
                         dispatch({type: "RESET_ERRORS"})
-
                     }
                 })
                 .catch(result => {

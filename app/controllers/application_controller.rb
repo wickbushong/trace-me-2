@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
     end
 
     def issue_token(entity)
-        JWT.encode({(entity.class.to_s.downcase + "_id").to_sym => entity.id}, jwt_key, 'HS256')
+        JWT.encode({entity.class.to_s.downcase.to_sym => {id: entity.id}}, jwt_key, 'HS256')
     end
 
     def authenticate_entity
@@ -17,6 +17,10 @@ class ApplicationController < ActionController::API
 
     def decode_jwt(token)
         JWT.decode(token, jwt_key, true, algorithm: 'HS256')
+    end
+
+    def current_entity
+        
     end
     
     # def encode_token(payload)

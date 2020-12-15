@@ -25,11 +25,11 @@ import resetErrors from './actions/resetErrors'
 
 class App extends React.PureComponent {
   
-  // componentDidMount() {
-  //   if (localStorage.jwt) {
-  //     this.props.JWTLogIn(localStorage.jwt)
-  //   }
-  // }
+  componentDidMount() {
+    if (localStorage.loggedIn === "true") {
+      this.props.JWTLogIn()
+    }
+  }
   
   handleLogOut = () => {
     delete localStorage.jwt
@@ -37,7 +37,7 @@ class App extends React.PureComponent {
   }
 
   isLoggedIn = () => {
-    return !!this.props.business.id
+    return !!(this.props.business.id)
   }
 
   errorCheck = () => {
@@ -89,6 +89,7 @@ class App extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     business: state.business,
+    user: state.user,
     visits: state.visits,
     errors: state.errors
   }
