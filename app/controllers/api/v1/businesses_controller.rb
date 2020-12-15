@@ -5,8 +5,14 @@ class Api::V1::BusinessesController < ApplicationController
   def create
     business = Business.new(business_params)
     if business.save
-      token = encode_token({business_id: business.id})
-      render json: {business: BusinessSerializer.new(business), jwt: token}, status: :created
+      created_jwt = issue_token(business)
+      cookies.signed[:jwt] = {
+        value:  created_jwt, 
+        httponly: true,
+        expires: 1.hour.from_now
+      }
+      binding.pry
+      render json: {business: BusinessSerializer.new(business)}, status: :created
     else
       render json: {errors: business.errors}, status: :unprocessable_entity
     end
