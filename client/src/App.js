@@ -26,7 +26,7 @@ import resetErrors from './actions/resetErrors'
 class App extends React.PureComponent {
   
   componentDidMount() {
-    if (!!localStorage.entity) {
+    if (!!localStorage.loggedIn) {
       this.props.JWTLogIn()
     }
   }
