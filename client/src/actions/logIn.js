@@ -9,14 +9,15 @@ export default function logIn(entity) {
         fetch("http://localhost:3001/api/v1/auth", options)
             .then(response => response.json())
                 .then(result => {
+                    debugger
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else if (result.user) { 
-                        localStorage.loggedIn = true
+                        // localStorage.loggedIn = true
                         dispatch({type: "LOGIN_USER", payload: result.user})
                         dispatch({type: "RESET_ERRORS"})
                     } else {
-                        localStorage.loggedIn = true
+                        // localStorage.loggedIn = true
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
                         dispatch({type: "RESET_ERRORS"})
                     }

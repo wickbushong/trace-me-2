@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import {connect} from 'react-redux';
 import Container from 'react-bootstrap/Container'
+import Cookies from 'js-cookie';
 
 import Navigation from './navigation/Navigation'
 import LogInPage from './containers/LogInPage'
@@ -26,9 +27,10 @@ import resetErrors from './actions/resetErrors'
 class App extends React.PureComponent {
   
   componentDidMount() {
-    if (localStorage.loggedIn === "true") {
-      this.props.JWTLogIn()
-    }
+    debugger
+    // if (localStorage.loggedIn === "true") {
+    //   this.props.JWTLogIn()
+    // }
   }
   
   handleLogOut = () => {
