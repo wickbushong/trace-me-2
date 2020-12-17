@@ -28,7 +28,6 @@ class Api::V1::AuthController < ApplicationController
     end
 
     def destroy
-      binding.pry
       cookies.delete(:jwt)
       render json: {
             message: 'logged out'

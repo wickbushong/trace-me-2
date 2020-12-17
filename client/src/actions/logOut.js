@@ -10,6 +10,7 @@ export default function logOut() {
             .then(response => response.json())
                 .then(result => {
                     console.log(result)
+                    delete localStorage.loggedIn
                     dispatch({type: "LOGOUT"})
                 })
     }
