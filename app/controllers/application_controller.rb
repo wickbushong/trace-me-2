@@ -7,7 +7,11 @@ class ApplicationController < ActionController::API
     end
 
     def issue_token(entity)
-        JWT.encode({entity.class.to_s.to_sym => {id: entity.id}}, jwt_key, 'HS256')
+        # JWT.encode({entity.class.to_s.to_sym => {id: entity.id}}, jwt_key, 'HS256')
+        JWT.encode({
+            type: entity.class.to_s,
+            id: entity.id
+        }, jwt_key, 'HS256')
     end
 
     def authenticate_entity

@@ -5,12 +5,13 @@ class Api::V1::AuthController < ApplicationController
       if cookies.signed[:jwt]
         binding.pry
         token = decode_jwt(cookies.signed[:jwt])[0]
-        entity = token.keys[0].constantize.find_by(id: token.values[0]["id"])
+        entity = token["type"].constantize.find_by(id: token["id"])
         render_serialized(entity)
       else
         entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
         if entity && entity.authenticate(params[:entity][:password])
           created_jwt = issue_token(entity)
+          binding.pry
           cookies.signed[:jwt] = {
             value:  created_jwt, 
             httponly: true,
