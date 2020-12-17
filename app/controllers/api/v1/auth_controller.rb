@@ -2,21 +2,27 @@ class Api::V1::AuthController < ApplicationController
     skip_before_action :authenticate_entity, only: [:create]
 
     def create
-      binding.pry
-      entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
-      if entity && entity.authenticate(params[:entity][:password])
-        created_jwt = issue_token(entity)
-        cookies.signed[:jwt] = {
-          value:  created_jwt, 
-          httponly: true,
-          expires: 1.hour.from_now
-        }
+      if cookies.signed[:jwt]
+        binding.pry
+        token = decode_jwt(cookies.signed[:jwt])[0]
+        entity = token.keys[0].constantize.find_by(id: token.values[0]["id"])
         render_serialized(entity)
-        # render json: {entity.class.to_s.downcase.to_sym => entity}
       else
-        render json: {
-          errors: ['incorrect email or password']
-        }
+        entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
+        if entity && entity.authenticate(params[:entity][:password])
+          created_jwt = issue_token(entity)
+          cookies.signed[:jwt] = {
+            value:  created_jwt, 
+            httponly: true,
+            expires: 15.minutes.from_now
+          }
+          render_serialized(entity)
+          # render json: {entity.class.to_s.downcase.to_sym => entity}
+        else
+          render json: {
+            errors: ['incorrect email or password']
+          }
+        end
       end
     end
 
