@@ -18,7 +18,13 @@ class ApplicationController < ActionController::API
     def authenticate_entity
         jwt = cookies.signed[:jwt]
         begin
-            decode_jwt(jwt)
+            token = decode_jwt(jwt)[0]
+            entity = token["type"].constantize.find_by(id: token["id"])
+            new_jwt = issue_token(entity)
+            cookies.signed[:jwt] = {
+            value:  new_jwt, 
+            httponly: true
+          }
         rescue JWT::ExpiredSignature
             cookies.delete(:jwt)
             render json: {message: ['Please log back in'] }, status: :unauthorized
