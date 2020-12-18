@@ -6,7 +6,14 @@ export default function addBusiness(business) {
             body: JSON.stringify({business})
         }
         fetch("http://localhost:3001/api/v1/businesses", options)
-            .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                debugger
+                throw new Error('invalid new business');
+            }
+        })
                 .then(result => {
                     if (result.errors) {
                         dispatch({type: "SIGNUP_ERROR", payload: result.errors})
@@ -16,8 +23,9 @@ export default function addBusiness(business) {
                         dispatch({type: "RESET_ERRORS"})
                     }
                 })
-                .catch(result => {
-                    dispatch({type: "SERVER_ERROR", payload: result.message})
+                .catch(error => {
+                    debugger
+                    dispatch({type: "SERVER_ERROR", payload: error.message})
                 })
     }
 }

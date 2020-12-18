@@ -11,7 +11,13 @@ export default function JWTLogIn() {
         }
 
         fetch("http://localhost:3001/api/v1/auth", options)
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error('please log back in');
+                }
+            })
                 .then(result => {
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
@@ -23,8 +29,9 @@ export default function JWTLogIn() {
                         dispatch({type: "RESET_ERRORS"})
                     }
                 })
-                .catch(result => {
-                    dispatch({type: "SERVER_ERROR", payload: "web token not authenticated"})
+                .catch(error => {
+                    delete localStorage.loggedIn
+                    dispatch({type: "SERVER_ERROR", payload: error.message})
                 })
     }
 }
