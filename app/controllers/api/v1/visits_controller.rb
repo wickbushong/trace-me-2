@@ -26,7 +26,6 @@ class Api::V1::VisitsController < ApplicationController
       business: business,
       time_in: Time.now
     )
-    binding.pry
     if visit.save
       render json: visit, status: :created
     else

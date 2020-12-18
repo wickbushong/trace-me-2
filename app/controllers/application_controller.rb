@@ -24,7 +24,13 @@ class ApplicationController < ActionController::API
     end
 
     def current_entity
-
+        if cookies.signed[:jwt]
+            token = decode_jwt(cookies.signed[:jwt])[0]
+            entity = token["type"].constantize.find_by(id: token["id"])
+            return entity
+        else
+            nil
+        end
     end
     
     # def encode_token(payload)
