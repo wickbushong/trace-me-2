@@ -11,11 +11,10 @@ export default function logIn(entity) {
                 if (response.ok) {
                     return response.json()
                 } else {
-                    throw new Error('login failed');
+                    throw new Error('invalid email or password');
                 }
             })
                 .then(result => {
-                    debugger
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else if (result.user) { 
@@ -29,7 +28,6 @@ export default function logIn(entity) {
                     }
                 })
                 .catch(error => {
-                    debugger
                     dispatch({type: "SERVER_ERROR", payload: error.message})
                 })
     }

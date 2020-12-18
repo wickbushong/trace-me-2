@@ -12,19 +12,23 @@ export default function checkIn(user, businessId) {
         }
 
         fetch(`http://localhost:3001/api/v1/businesses/${businessId}/visits`, visit_options)
-            .then(response => response.json())
-                .catch(result => {
-                    debugger
-                    dispatch({type: "LOGOUT"})
-                    dispatch({type: "SERVER_ERROR", payload: "token expired, please log back in"})
-                })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error('unable to record visit');
+                }
+            })
                 .then(result => {
-                    debugger
-                    if (result.status < 400) {
-                    //     dispatch({type: "VISIT_ERROR", payload: result.errors})
-                    // } else { 
+                    if (result.errors) {
+                        dispatch({type: "VISIT_ERROR", payload: result.errors})
+                    } else { 
                         dispatch({type: 'CHECKIN_VISIT', payload: result})
                     }
+                })
+                .catch(error => {
+                    dispatch({type: "LOGOUT"})
+                    dispatch({type: "SERVER_ERROR", payload: "token expired, please log back in"})
                 })
 
     }
