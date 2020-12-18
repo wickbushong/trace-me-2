@@ -32,7 +32,7 @@ class App extends React.PureComponent {
   }
   
   handleLogOut = () => {
-    delete localStorage.loggedIn
+    // delete localStorage.loggedIn
     this.props.logOut()
     // return <Redirect to="/" />
   }
