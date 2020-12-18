@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
         JWT.encode({
             type: entity.class.to_s,
             id: entity.id,
-            exp: 10.seconds.from_now.to_i
+            exp: 20.minutes.from_now.to_i
         }, jwt_key, 'HS256')
     end
 
@@ -43,14 +43,6 @@ class ApplicationController < ActionController::API
         else
             return nil
         end
-    end
-
-    def authorized
-        render json: { message: 'Please log in' }, status: :unauthorized unless !!current_entity
-    end
-
-    def renew_token
-
     end
     
     # def encode_token(payload)
