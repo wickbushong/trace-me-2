@@ -3,9 +3,17 @@ class Api::V1::AuthController < ApplicationController
 
     def create
       if cookies.signed[:jwt]
-        token = decode_jwt(cookies.signed[:jwt])[0]
-        entity = token["type"].constantize.find_by(id: token["id"])
-        render_serialized(entity)
+        begin
+            token = decode_jwt(cookies.signed[:jwt])[0]
+            entity = token["type"].constantize.find_by(id: token["id"])
+            render_serialized(entity)
+        rescue JWT::ExpiredSignature
+            cookies.delete(:jwt)
+            render json: {message: ['Please log back in'] }, status: :unauthorized
+        end
+        # token = decode_jwt(cookies.signed[:jwt])[0]
+        # entity = token["type"].constantize.find_by(id: token["id"])
+        # render_serialized(entity)
       else
         entity = User.find_by(email: params[:entity][:email]) || Business.find_by(email: params[:entity][:email])
         if entity && entity.authenticate(params[:entity][:password])
@@ -13,10 +21,8 @@ class Api::V1::AuthController < ApplicationController
           cookies.signed[:jwt] = {
             value:  created_jwt, 
             httponly: true
-            # expires: 15.seconds.from_now
           }
           render_serialized(entity)
-          # render json: {entity.class.to_s.downcase.to_sym => entity}
         else
           render json: {
             errors: ['incorrect email or password']

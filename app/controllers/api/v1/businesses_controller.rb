@@ -13,7 +13,7 @@ class Api::V1::BusinessesController < ApplicationController
       }
       render json: {business: BusinessSerializer.new(business)}, status: :created
     else
-      render json: {errors: business.errors.full_messages}, status: :unprocessable_entity
+      render json: {body: business.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
