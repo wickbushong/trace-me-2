@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
             cookies.signed[:jwt] = {
             value:  new_jwt, 
             httponly: true
-          }
+            }
         rescue JWT::ExpiredSignature
             cookies.delete(:jwt)
             render json: {message: ['Please log back in'] }, status: :unauthorized
@@ -43,10 +43,6 @@ class ApplicationController < ActionController::API
         else
             return nil
         end
-    end
-
-    def token_expired?
-
     end
 
     def authorized

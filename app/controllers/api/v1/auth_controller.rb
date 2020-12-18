@@ -3,6 +3,7 @@ class Api::V1::AuthController < ApplicationController
 
     def create
       if cookies.signed[:jwt]
+        binding.pry
         begin
             token = decode_jwt(cookies.signed[:jwt])[0]
             entity = token["type"].constantize.find_by(id: token["id"])
