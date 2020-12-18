@@ -10,13 +10,19 @@ class ApplicationController < ActionController::API
         # JWT.encode({entity.class.to_s.to_sym => {id: entity.id}}, jwt_key, 'HS256')
         JWT.encode({
             type: entity.class.to_s,
-            id: entity.id
+            id: entity.id,
+            exp: 15.seconds.from_now
+
         }, jwt_key, 'HS256')
     end
 
     def authenticate_entity
         jwt = cookies.signed[:jwt]
-        decode_jwt(jwt)
+        begin
+            decode_jwt(jwt)
+        rescue JWT::ExpiredSignature
+            binding.pry
+        end
     end
 
     def decode_jwt(token)
@@ -29,8 +35,20 @@ class ApplicationController < ActionController::API
             entity = token["type"].constantize.find_by(id: token["id"])
             return entity
         else
-            nil
+            return nil
         end
+    end
+
+    def token_expired?
+
+    end
+
+    def authorized
+        render json: { message: 'Please log in' }, status: :unauthorized unless !!current_entity
+    end
+
+    def renew_token
+
     end
     
     # def encode_token(payload)

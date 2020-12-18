@@ -12,8 +12,8 @@ class Api::V1::AuthController < ApplicationController
           created_jwt = issue_token(entity)
           cookies.signed[:jwt] = {
             value:  created_jwt, 
-            httponly: true,
-            expires: 15.minutes.from_now
+            httponly: true
+            # expires: 15.seconds.from_now
           }
           render_serialized(entity)
           # render json: {entity.class.to_s.downcase.to_sym => entity}
