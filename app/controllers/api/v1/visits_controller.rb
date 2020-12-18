@@ -19,7 +19,8 @@ class Api::V1::VisitsController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(user_params)
+    binding.pry
+    user = User.find_by(user_params) || User.create(user_params.merge(password: UUID.new.generate))
     business = Business.find_by(id: params[:business_id])
     visit = Visit.new(
       user: user,
