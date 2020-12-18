@@ -23,6 +23,7 @@ export default function logIn(entity) {
                     }
                 })
                 .catch(result => {
+                    debugger
                     dispatch({type: "SERVER_ERROR", payload: "login failed"})
                 })
     }

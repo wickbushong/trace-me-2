@@ -13,7 +13,6 @@ export default function JWTLogIn() {
         fetch("http://localhost:3001/api/v1/auth", options)
             .then(response => response.json())
                 .then(result => {
-                    debugger
                     if (result.errors) {
                         dispatch({type: "LOGIN_ERROR", payload: result.errors})
                     } else if (result.user) { 

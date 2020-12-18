@@ -32,12 +32,13 @@ class App extends React.PureComponent {
   }
   
   handleLogOut = () => {
-    delete localStorage.jwt
+    delete localStorage.loggedIn
     this.props.logOut()
+    // return <Redirect to="/" />
   }
 
   isLoggedIn = () => {
-    return !!(this.props.business.id)
+    return !!(this.props.business.id || this.props.user.id)
   }
 
   errorCheck = () => {
