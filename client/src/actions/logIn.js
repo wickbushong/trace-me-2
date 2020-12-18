@@ -8,6 +8,10 @@ export default function logIn(entity) {
         }
         fetch("http://localhost:3001/api/v1/auth", options)
             .then(response => response.json())
+                .catch(result => {
+                    debugger
+                    dispatch({type: "SERVER_ERROR", payload: "login failed"})
+                })
                 .then(result => {
                     debugger
                     if (result.errors) {
@@ -21,10 +25,6 @@ export default function logIn(entity) {
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
                         dispatch({type: "RESET_ERRORS"})
                     }
-                })
-                .catch(result => {
-                    debugger
-                    dispatch({type: "SERVER_ERROR", payload: "login failed"})
                 })
     }
 }

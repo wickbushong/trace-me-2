@@ -13,6 +13,7 @@ export const errorReducer = (state = {}, action) => {
         case 'RESET_ERRORS':
             return {}
         case 'LOGOUT':
+            delete localStorage.loggedIn
             return {}
         default:
             return state
