@@ -20,7 +20,7 @@ class Api::V1::AuthController < ApplicationController
         else
           render json: {
             errors: ['incorrect email or password']
-          }
+          }, status: :unauthorized
         end
       end
     end

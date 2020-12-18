@@ -11,8 +11,7 @@ class ApplicationController < ActionController::API
         JWT.encode({
             type: entity.class.to_s,
             id: entity.id,
-            exp: 15.seconds.from_now
-
+            exp: 10.seconds.from_now.to_i
         }, jwt_key, 'HS256')
     end
 
@@ -21,7 +20,8 @@ class ApplicationController < ActionController::API
         begin
             decode_jwt(jwt)
         rescue JWT::ExpiredSignature
-            binding.pry
+            cookies.delete(:jwt)
+            render json: {message: ['Please log back in'] }, status: :unauthorized
         end
     end
 

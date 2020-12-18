@@ -7,11 +7,13 @@ export default function logIn(entity) {
             body: JSON.stringify({entity})
         }
         fetch("http://localhost:3001/api/v1/auth", options)
-            .then(response => response.json())
-                .catch(result => {
-                    debugger
-                    dispatch({type: "SERVER_ERROR", payload: "login failed"})
-                })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error('login failed');
+                }
+            })
                 .then(result => {
                     debugger
                     if (result.errors) {
@@ -25,6 +27,10 @@ export default function logIn(entity) {
                         dispatch({type: "LOGIN_BUSINESS", payload: result.business})
                         dispatch({type: "RESET_ERRORS"})
                     }
+                })
+                .catch(error => {
+                    debugger
+                    dispatch({type: "SERVER_ERROR", payload: error.message})
                 })
     }
 }

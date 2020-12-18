@@ -20,10 +20,10 @@ export default function checkIn(user, businessId) {
                 })
                 .then(result => {
                     debugger
-                    if (!result.errors) {
+                    if (result.status < 400) {
+                    //     dispatch({type: "VISIT_ERROR", payload: result.errors})
+                    // } else { 
                         dispatch({type: 'CHECKIN_VISIT', payload: result})
-                    } else { 
-                        dispatch({type: "VISIT_ERROR", payload: result.errors})
                     }
                 })
 
