@@ -19,7 +19,6 @@ class Api::V1::VisitsController < ApplicationController
   end
 
   def create
-    binding.pry
     user = User.find_by(user_params) || User.create(user_params.merge(password: UUID.new.generate))
     business = Business.find_by(id: params[:business_id])
     visit = Visit.new(
@@ -30,6 +29,7 @@ class Api::V1::VisitsController < ApplicationController
     if visit.save
       render json: visit, status: :created
     else
+      binding.pry
       render json: {errors: visit.errors.full_messages}, status: :unprocessable_entity
     end
   end
