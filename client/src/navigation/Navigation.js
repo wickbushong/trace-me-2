@@ -7,10 +7,14 @@ import { connect } from 'react-redux';
 import BusinessNav from './BusinessNav'
 import AnonymousNav from './AnonymousNav';
 
-const Navigation = ({business, logOut}) => {
+const Navigation = ({business, user, logOut}) => {
+    const entity = business.id || user.id ? business || user : null
+
     return (
         <Navbar bg="dark" variant="dark" sticky="top" expand="md" >
-            <Navbar.Brand as={NavLink} to="/">{business.id ? business.name : "TraceMe"}</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to="/">
+                {entity ? entity.name || entity.first_name : "TraceMe"}
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 { business.id ? <BusinessNav logOut={logOut} business={business} /> : <AnonymousNav />}
@@ -19,8 +23,8 @@ const Navigation = ({business, logOut}) => {
     )
 }
 
-const mapStateToProps = ({business}) => {
-    return {business}
+const mapStateToProps = ({business, user}) => {
+    return {business, user}
 }
 
 export default connect(mapStateToProps)(Navigation)
