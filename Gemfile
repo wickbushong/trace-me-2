@@ -51,3 +51,5 @@ gem "jwt", "~> 2.2"
 gem "faker", "~> 2.15"
 
 gem 'email_validator'  
+
+gem 'uuid'
