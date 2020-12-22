@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { connect } from 'react-redux';
 
-import LoggedInNav from './LoggedInNav'
+import BusinessNav from './BusinessNav'
 import AnonymousNav from './AnonymousNav';
 
 const Navigation = ({business, logOut}) => {
@@ -13,7 +13,7 @@ const Navigation = ({business, logOut}) => {
             <Navbar.Brand as={NavLink} to="/">{business.id ? business.name : "TraceMe"}</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                { business.id ? <LoggedInNav logOut={logOut} business={business} /> : <AnonymousNav />}
+                { business.id ? <BusinessNav logOut={logOut} business={business} /> : <AnonymousNav />}
             </Navbar.Collapse>
         </Navbar>
     )

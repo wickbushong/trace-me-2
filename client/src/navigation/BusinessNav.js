@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import Nav from 'react-bootstrap/Nav'
 
-const LoggedInNav = ({logOut}) => {
+const BusinessNav = ({logOut}) => {
     return (
         <Nav className="ml-auto">
             <Nav.Link as={NavLink} to="/visits">Visitor Log</Nav.Link>
@@ -14,4 +14,4 @@ const LoggedInNav = ({logOut}) => {
     )
 }
 
-export default LoggedInNav
+export default BusinessNav
