@@ -14,7 +14,6 @@ const AnonymousNav = () => {
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to="/signup/user">For Customers</NavDropdown.Item>
             </NavDropdown>
-            {/* <Button variant="outline-danger" className="ml-auto" as={NavLink} to="/report">Report</Button> */}
         </Nav>
     )
 }
