@@ -21,8 +21,8 @@ const Navigation = ({business, user, logOut}) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 { !!loggedIn ? null : <AnonymousNav /> }
-                { business.id ? <BusinessNav logOut={logOut} entity={entity} /> : null}
-                { user.id ? <UserNav logOut={logOut} entity={entity} /> : null}
+                { business.id ? <BusinessNav logOut={logOut} /> : null}
+                { user.id ? <UserNav logOut={logOut} /> : null}
             </Navbar.Collapse>
         </Navbar>
     )

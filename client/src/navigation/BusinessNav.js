@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import Nav from 'react-bootstrap/Nav'
 
-const BusinessNav = ({logOut, business}) => {
+const BusinessNav = ({logOut}) => {
     
     return (
         <Nav className="container-fluid">
