@@ -9,8 +9,8 @@ import UserNav from './UserNav'
 import AnonymousNav from './AnonymousNav';
 
 const Navigation = ({business, user, logOut}) => {
-    const entity = business || user
-    const loggedIn = entity.id ? true : false
+    // const entity = business || user
+    // const loggedIn = entity.id ? true : false
     const brandName = business.name || user.first_name || "TraceMe"
 
     return (
@@ -20,7 +20,7 @@ const Navigation = ({business, user, logOut}) => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                { !!loggedIn ? null : <AnonymousNav /> }
+                { business.id || user.id ? null : <AnonymousNav /> }
                 { business.id ? <BusinessNav logOut={logOut} /> : null}
                 { user.id ? <UserNav logOut={logOut} /> : null}
             </Navbar.Collapse>
