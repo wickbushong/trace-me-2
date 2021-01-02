@@ -9,8 +9,6 @@ import UserNav from './UserNav'
 import AnonymousNav from './AnonymousNav';
 
 const Navigation = ({business, user, logOut}) => {
-    // const entity = business || user
-    // const loggedIn = entity.id ? true : false
     const brandName = business.name || user.first_name || "TraceMe"
 
     return (
